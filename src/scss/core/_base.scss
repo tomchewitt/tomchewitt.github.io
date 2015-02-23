@@ -2,16 +2,6 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
-}
-
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -76,15 +66,13 @@ textarea {
   resize: vertical;
 }
 
-.main {
-  width: 80%;
-  float: left;
-  padding: 20px;
-}
 
-.sidebar {
-  width: 20%;
-  float: right;
-  background: #ccc;
-  padding: 20px;
+
+// ...
+html,
+body,
+.row,
+.sitenav,
+.container-fluid {
+    height: 100%;
 }

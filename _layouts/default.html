@@ -1,7 +1,16 @@
 {% include {{ site.data.partials.header }} %}
 
-    <div class="content">
-      {{ content }}
-    </div>
+	<div class="container-fluid ">
+		<div class="row no-gutter">
+			<section class="col-md-3 sitenav">
+				<h1>{{ site.theme.name }}</h1>
+			</section>
 
-{% include {{ site.data.partials.footer }} %}
+		    <section class="col-md-7 col-md-offset-1 content">
+				<a href="#" class="btn btn-primary">Button</a>
+				{{ content }}
+		    </section>
+		    {% include {{ site.data.partials.footer }} %}
+		</div>
+	</div>
+

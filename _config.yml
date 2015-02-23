@@ -36,3 +36,4 @@ paginate_path: "page:num"
 # BUILD SETTINGS
 # markdown: markdown
 highlighter: pygments
+exclude: ["node_modules", "src", "Gruntfile.js", "package.json"]
