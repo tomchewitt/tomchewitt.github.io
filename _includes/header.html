@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{% if page.title %}{{ page.title }} |{% endif %} {{ site.theme.title }}</title>
         <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.theme.description }}{% endif %}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- SOCIAL SHARES -->
 <!-- 
         <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Tom Does Digital | Online Portfolio of Tom Hewitt | UX. Design. Develop." />
         <meta prefix="og: http://ogp.me/ns#" property="og:description" content="Welcome to tomdoes.digital, the new home for my online portfolio. I'm multidisciplinary designer and developer with a passion for great user experiences. Have a look and get in touch." />
@@ -35,10 +37,13 @@
         <link rel="stylesheet" href="{{ site.data.partials.css | prepend: site.github.url }}">
     
         <!-- CANONICAL -->
-        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.github.url | prepend: site.url }}">
+        <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.github.url }}">
     
         <!-- RSS -->
-        <link rel="alternate" type="application/atom+xml" title="{{ site.theme.title }}" href="{{ "/feed.xml" | prepend: site.github.url | prepend: site.url }}" />
+        <link rel="alternate" type="application/atom+xml" title="{{ site.theme.title }}" href="{{ "/feed.xml" | prepend: site.github.url }}" />
+
+        <!-- MODERNIZR -->
+        <script src="{{ site.data.partials.js.modernizr | prepend: site.github.url }}"></script>
 
         <!-- GOOGLE ANALYTICS -->
         {% if site.theme.google_analytics %}
@@ -55,3 +60,6 @@
     
     </head>
     <body>
+        <!--[if lt IE 8]>
+            <p class="browser-upgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->

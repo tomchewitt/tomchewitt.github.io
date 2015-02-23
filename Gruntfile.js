@@ -3,21 +3,12 @@ module.exports = function(grunt) {
 	// LOAD IN ALL TASKS
 	require('time-grunt')(grunt);
 	require('load-grunt-tasks')(grunt, { pattern: ['grunt-*'] });
-	grunt.loadTasks('grunt/tasks');
 
 	// INIT GRUNT CONFIG
 	grunt.initConfig({
 
 		// READ IN PACKAGE.JSON
 		pkg: grunt.file.readJSON('package.json'),
-
-		// BANNER
-		banner: [
-			'/*!',
-			' * Project Name: <%= pkg.name %>',
-			' * Author: <%= pkg.author %>',
-			' */\n'
-		].join('\n'),
 
 
 		// #############################################################################
@@ -28,23 +19,17 @@ module.exports = function(grunt) {
 			'styles': {
 				src: 		'src/scss',
 				unprefixed: 'src/css',
-				dist: 		'public/css'
+				dist: 		'dist/css'
 			},
 			'scripts': {
 				src: 		'src/js',
-				dist: 		'public/js'
+				dist: 		'dist/js'
 			},
 			'images': {
 				src: 		'src/img',
-				dist: 		'public/img'
-			},
-			'html': {
-				src: 		'src/html',
-				dist: 		'public'
-			},
-			'port': '4567'
+				dist: 		'dist/img'
+			}
 		},
-
 
 
 		// #############################################################################
@@ -56,7 +41,6 @@ module.exports = function(grunt) {
 			build: {
 				options: {
 					sourcemap: true,
-					banner: '<%= banner %>',
 					specify: '<%= dir.styles.src %>/bundle-noprefix.scss',
 					sassDir: '<%= dir.styles.src %>',
 					cssDir: '<%= dir.styles.unprefixed %>',
@@ -80,7 +64,6 @@ module.exports = function(grunt) {
 		},
 
 
-
 		// #############################################################################
 		// SCRIPTS
 		// #############################################################################
@@ -89,8 +72,7 @@ module.exports = function(grunt) {
 		concat: {
 			dist: {
 				src: [
-					'<%= dir.scripts.src %>/app.js',
-					'<%= dir.scripts.src %>/**/*.js'
+					'<%= dir.scripts.src %>/bootstrap/bootstrap.min.js'
 					],
 				dest: '<%= dir.scripts.dist %>/bundle.js'
 			}
@@ -106,33 +88,9 @@ module.exports = function(grunt) {
 				options: {
 					banner: '<%= banner %>',
 				}
-			},
-			vendor: { // 3rd party scripts
-				files: [{
-					src: '<%= dir.scripts.src %>/**/*.js',
-					dest: '<%= dir.scripts.src %>'
-				}]
 			}
 		},
 
-
-		// #############################################################################
-		// HTML
-		// #############################################################################
-
-		rsync: {
-			options: {
-				args: ['--delete'],
-				exclude: ['.git*'],
-				recursive: true
-			},
-			html: {
-				options: {
-					src: '<%= dir.html.src %>/**',
-					dest: '<%= dir.html.dist %>'
-				}
-			}
-		},
 
 		// #############################################################################
 		// IMAGES
@@ -156,43 +114,10 @@ module.exports = function(grunt) {
 
 
 		// #############################################################################
-		// SERVER
-		// #############################################################################
-
-		connect: {
-			server: {
-				options: {
-					port: '<%= dir.port %>',
-					keepalive: true,
-					base: '<%= dir.html.dist %>',
-					open: {
-						target: 'http://localhost:<%= dir.port %>'
-					}
-				}
-			}
-		},
-
-
-		// #############################################################################
-		// CONCURRENT
-		// #############################################################################
-
-		concurrent: {
-			dev: ['server', 'watch'],
-			all: ['style', 'script', 'content'],
-			options: { logConcurrentOutput: true }
-		},
-
-
-
-		// #############################################################################
 		// WATCH
 		// #############################################################################
 		
 		watch: {
-			options: {
-				livereload: true
-			},
 			css: {
 				files: '<%= dir.styles.src %>/**',
 				tasks: ['compass', 'autoprefixer']
@@ -200,10 +125,6 @@ module.exports = function(grunt) {
 			js: {
 				files: '<%= dir.scripts.src %>/**',
 				tasks: ['concat', 'uglify:scripts']
-			},
-			html: {
-				files: '<%= dir.html.src %>/**',
-				tasks: ['rsync:html']
 			},
 			images: {
 				files: '<%= dir.images.src %>/**',
@@ -216,9 +137,8 @@ module.exports = function(grunt) {
 	// #############################################################################
 	// TASKS
 	// #############################################################################
-	grunt.registerTask('default', ['concurrent:all']);
-	grunt.registerTask('server', ['connect:server']);
+	grunt.registerTask('default', ['compass:build', 'autoprefixer', 'concat', 'uglify:scripts', 'newer:imagemin']);
 	grunt.registerTask('style', ['compass:build', 'autoprefixer']);
 	grunt.registerTask('script', ['concat', 'uglify:scripts']);
-	grunt.registerTask('content', ['rsync:html', 'newer:imagemin']);
+	grunt.registerTask('image', ['newer:imagemin']);
 };

@@ -1,6 +1,10 @@
 {
 	"css": "/dist/css/bundle.css",
-	"css": "/dist/js/bundle.js",
+	"js": {
+		"jquery": "/dist/js/jquery",
+		"bundle": "/dist/js/bundle.js",
+		"modernizr": "/dist/js/modernizr-2.8.3-custom.min.js"
+	},
 	"header": "header.html",
 	"footer": "footer.html"
 }

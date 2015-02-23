@@ -34,5 +34,5 @@ paginate: 5
 paginate_path: "page:num"
 
 # BUILD SETTINGS
-markdown: markdown
+# markdown: markdown
 highlighter: pygments
