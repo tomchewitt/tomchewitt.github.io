@@ -1,0 +1,6 @@
+{
+	"css": "/dist/css/bundle.css",
+	"css": "/dist/js/bundle.js",
+	"header": "header.html",
+	"footer": "footer.html"
+}
