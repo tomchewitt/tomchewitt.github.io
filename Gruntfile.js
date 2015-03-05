@@ -40,12 +40,22 @@ module.exports = function(grunt) {
 		compass: {
 			build: {
 				options: {
-					sourcemap: true,
+					sourcemap: false,
 					specify: '<%= dir.styles.src %>/bundle-noprefix.scss',
 					sassDir: '<%= dir.styles.src %>',
 					cssDir: '<%= dir.styles.unprefixed %>',
 					environment: 'production',
 					outputStyle: 'compressed'
+				}
+			},
+			bootstrap: {
+				options: {
+					sourcemap: false,
+					specify: 'src/scss/vendor/bootstrap/custom-bootstrap.scss',
+					sassDir: 'src/scss/vendor/bootstrap/',
+					cssDir: 'src/scss/vendor/bootstrap/custom/css/',
+					environment: 'production',
+					outputStyle: 'expanded'
 				}
 			}
 		},
@@ -61,6 +71,26 @@ module.exports = function(grunt) {
 				src: '<%= dir.styles.unprefixed %>/bundle-noprefix.css',
 				dest: '<%= dir.styles.dist %>/bundle.css'
 			},
+			bootstrap: {
+				flatten: true,
+				src: 'src/scss/vendor/bootstrap/custom/css/custom-bootstrap.css',
+				dest: 'src/scss/vendor/bootstrap/custom/scss/custom-bootstrap-prefixed.css'
+			}
+		},
+
+		// CHANGE CUSTOM BOOTSTRAP CSS EXTENSION
+		copy: {
+			getSCSSFromCSS: {
+				files: [{
+					expand: true,
+					cwd: 'src/scss/vendor/bootstrap/custom/scss/',
+			        src: ['**/*.css'],
+			        dest: 'src/scss/vendor/bootstrap/custom/scss/',
+					rename: function(dest, src) {
+						return dest + src.replace(/\.css$/, ".scss");
+					}
+				}]
+			}
 		},
 
 
@@ -120,7 +150,7 @@ module.exports = function(grunt) {
 		watch: {
 			css: {
 				files: '<%= dir.styles.src %>/**',
-				tasks: ['compass', 'autoprefixer']
+				tasks: ['compass:build', 'autoprefixer:files']
 			},
 			js: {
 				files: '<%= dir.scripts.src %>/**',
@@ -139,6 +169,7 @@ module.exports = function(grunt) {
 	// #############################################################################
 	grunt.registerTask('default', ['compass:build', 'autoprefixer', 'concat', 'uglify:scripts', 'newer:imagemin']);
 	grunt.registerTask('style', ['compass:build', 'autoprefixer']);
+	grunt.registerTask('vendorstyle', ['compass:bootstrap', 'autoprefixer:bootstrap', 'copy:getSCSSFromCSS']);
 	grunt.registerTask('script', ['concat', 'uglify:scripts']);
 	grunt.registerTask('image', ['newer:imagemin']);
 };

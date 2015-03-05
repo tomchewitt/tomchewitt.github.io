@@ -6,5 +6,6 @@
 		"modernizr": "/dist/js/modernizr-2.8.3-custom.min.js"
 	},
 	"header": "header.html",
-	"footer": "footer.html"
+	"footer": "footer.html",
+	"sitenav": "sitenav.html",
 }

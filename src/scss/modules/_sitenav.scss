@@ -1,6 +1,45 @@
 // =====================================================================================
 // SITE NAV (sidebar)
 // =====================================================================================
+$triangleborder: 40px;
+
 .sitenav {
-	background: $brand-primary;
+	background: $purple;
+	color: $white;
+	overflow: auto;
+
+	a {
+		color: $white;
+	}
+}
+
+.triangle {
+	width: $triangleborder * 2;
+	height: ($triangleborder * 2) * 0.866;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 30px;
+
+	&::before, &::after {
+		content: "";
+		width: 0; 
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&::before {
+		border-bottom: #{($triangleborder*2) * 0.866} solid rgba($red, 0.7);
+		border-left: $triangleborder solid transparent;
+		border-right: $triangleborder solid transparent;
+		transform: scale(0.5) translateY(50%);
+	}
+
+	&::after {
+		border-left: $triangleborder solid transparent;
+		border-right: $triangleborder solid transparent;
+		border-top: #{($triangleborder*2) * 0.866} solid rgba($blue, 0.7);
+	}
 }

@@ -1,6 +1,8 @@
-// BOOTSTRAP
-@import "core/overrides";
-@import "bootstrap/bootstrap";
+// CORE
+@import "core/colours";
+
+// BOOTSTRAP & FONTAWESOME
+@import "vendor/bootstrap/custom/scss/custom-bootstrap-prefixed";
 
 // BASE
 @import "core/base";

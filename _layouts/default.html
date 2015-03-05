@@ -2,9 +2,8 @@
 
 	<div class="container-fluid ">
 		<div class="row no-gutter">
-			<section class="col-md-3 sitenav">
-				<h1>{{ site.theme.name }}</h1>
-			</section>
+
+			{% include {{ site.data.partials.sitenav }} %}
 
 		    <section class="col-md-7 col-md-offset-1 content">
 				<a href="#" class="btn btn-primary">Button</a>
