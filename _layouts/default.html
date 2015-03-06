@@ -1,15 +1,14 @@
 {% include {{ site.data.partials.header }} %}
 
-	<div class="container-fluid ">
+	<div class="container-fluid template__default">
 		<div class="row no-gutter">
-
 			{% include {{ site.data.partials.sitenav }} %}
 
-		    <section class="col-md-7 col-md-offset-1 content">
-				<a href="#" class="btn btn-primary">Button</a>
+		    <section class="col-md-7 col-md-offset-4 content">
 				{{ content }}
 		    </section>
-		    {% include {{ site.data.partials.footer }} %}
+
 		</div>
 	</div>
 
+{% include {{ site.data.partials.footer }} %}

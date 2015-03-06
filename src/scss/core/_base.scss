@@ -87,7 +87,11 @@ body,
 
 body {
     font-family: $font-body;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 30px;
 }
+
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -95,5 +99,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6,
 .btn, nav {
-   font-family: $font-header; 
+   font-family: $font-header;
+   text-transform: uppercase;
+   font-weight: 300;
 }
