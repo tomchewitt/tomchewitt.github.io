@@ -5,8 +5,12 @@ layout: default
     <div class="row no-gutter home">
 
     {% for post in paginator.posts %}
-        <div class="col-md-6 post__sample">
+        <div id="{{ post.custom-id }}" class="col-md-6 post__sample">
             <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+                {% if post.sample-img %}
+                    <img class="post__sample--img" src="{{ post.sample-img }}">
+                {% endif %}
+                <div class="post__sample--gradient"></div>
                 <div class="post__sample--wrap">
                     <header class="post__sample--header">
                         <h1>{{ post.title }}</h1>

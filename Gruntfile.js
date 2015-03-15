@@ -90,7 +90,17 @@ module.exports = function(grunt) {
 						return dest + src.replace(/\.css$/, ".scss");
 					}
 				}]
-			}
+			},
+			cssprebuild: {
+				files: [{
+					// src: '<%= dir.styles.dist %>/*',
+    				// dest: '_site/dist/css/'
+    				expand: true,
+    				cwd: 'dist/css/',
+			        src: ['*'],
+			        dest: '_site/dist/css/'
+				}]
+			},	
 		},
 
 
@@ -150,7 +160,7 @@ module.exports = function(grunt) {
 		watch: {
 			css: {
 				files: '<%= dir.styles.src %>/**',
-				tasks: ['compass:build', 'autoprefixer:files']
+				tasks: ['compass:build', 'autoprefixer:files', 'copy:cssprebuild']
 			},
 			js: {
 				files: '<%= dir.scripts.src %>/**',
