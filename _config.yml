@@ -1,20 +1,21 @@
 theme: 
   # GLOBALS
   name: "TOM HEWITT"
+  title: "Tom Does Digital"
   description: "A blog... it's my blog..."
 
   # Icons
   rss: false
   email_address: # full email address, e.g. "sam@example.com"
-  behance:
-  bitbucket: 
+  behance: "tomchewitt"
+  bitbucket:
   dribbble: 
   facebook: 
   flickr: 
   github: "tomchewitt"
   google_plus: 
   instagram: 
-  linkedin:  # full URL
+  linkedin: "http://uk.linkedin.com/in/tomphewitt" # full URL
   pinterest: 
   reddit: 
   soundcloud: 

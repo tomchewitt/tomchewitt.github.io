@@ -17,6 +17,17 @@ $triangleborder: 40px;
 	}
 }
 
+.sitenav__footer {
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+
+// =====================================================================================
+// TRIANGLE
+// =====================================================================================
 .triangle {
 	width: $triangleborder * 2;
 	height: ($triangleborder * 2) * 0.866;
@@ -46,4 +57,16 @@ $triangleborder: 40px;
 		border-right: $triangleborder solid transparent;
 		border-top: #{($triangleborder*2) * 0.866} solid rgba($blue, 0.7);
 	}
+}
+
+
+// =====================================================================================
+// NAVIGATIONS
+// =====================================================================================
+.nav__tags {
+
+}
+
+.nav__pages {
+	
 }

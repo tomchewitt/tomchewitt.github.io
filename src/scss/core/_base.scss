@@ -82,14 +82,18 @@ body,
 /*
  * BASE FONT bits
  */
- $font-header: "Open Sans", Helvetica, Arial, sans-serif;
- $font-body: "Roboto Slab", serif;
+ $font-stack: "Source Sans Pro", Helvetica, Arial, sans-serif;
 
 body {
-    font-family: $font-body;
+    font-family: $font-stack;
     font-weight: 300;
-    font-size: 18px;
-    line-height: 30px;
+    font-size: 16px;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.7em;
+    letter-spacing: 0.01em;
 }
 
 h1, .h1,
@@ -99,7 +103,7 @@ h4, .h4,
 h5, .h5,
 h6, .h6,
 .btn, nav {
-   font-family: $font-header;
+   font-family: $font-stack;
    text-transform: uppercase;
    font-weight: 300;
 }
