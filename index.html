@@ -3,32 +3,37 @@ layout: default
 ---
 
     <div class="row no-gutter home">
-
-    {% for post in paginator.posts %}
-        <div id="{{ post.custom-id }}" class="col-md-6 post__sample">
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+        <div class="breadcrumbs">
+            <p>HOME  <span class="filter">LIST</span><span class="filter">BOX</span></p>
+            
+        </div>
+        <ul class="post__sample-wrap">
+        {% for post in paginator.posts %}
+            <li id="{{ post.custom-id }}" class="col-md-6 post__sample">
+                <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                 {% if post.sample-img %}
                     <img class="post__sample--img" src="{{ post.sample-img }}">
                 {% endif %}
-                <div class="post__sample--gradient"></div>
-                <div class="post__sample--wrap">
-                    <header class="post__sample--header">
-                        <h1>{{ post.title }}</h1>
-                        <p class="h5">{{ post.date | date: "%-d/%-m/%Y" }}</p>
-                    </header>
+                    <div class="post__sample--gradient"></div>
+                    <div class="post__sample--wrap">
+                        <header class="post__sample--header">
+                            <h1>{{ post.title }}</h1>
+                            <p class="h5">{{ post.date | date: "%-d/%-m/%Y" }}</p>
+                        </header>
 
-                    <div class="post__sample--excerpt">
-                        <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                        <div class="post__sample--excerpt">
+                            <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="post__read-more">
-                    <span>MORE</span>
-                </div>
-            </a>
-        </div>
-    {% endfor %}
-
+                    <div class="post__read-more">
+                        <span>MORE</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
         <!-- {% if paginator.total_pages > 1 %}
             <div class="pagination">
 

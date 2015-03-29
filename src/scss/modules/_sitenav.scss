@@ -4,13 +4,14 @@
 $triangleborder: 40px;
 
 .sitenav {
-	background: $purple;
-	color: $white;
-	overflow: auto;
 	position: relative;
 	position: fixed;
 	top: 0;
 	left: 0;
+	padding: 0;
+	background: $purple;
+	color: $white;
+	overflow: auto;
 
 	a {
 		color: $white;
@@ -69,4 +70,29 @@ $triangleborder: 40px;
 
 .nav__pages {
 	
+}
+
+.nav__tags {
+	ul {
+		padding: 0;
+	}
+	li {
+		width: 100%;
+		list-style: none;
+	}
+}
+
+// shame...
+.page-link {
+	width: 100%;
+	display: block;
+	padding: 0 15px;
+	font-size: 18px;
+  	line-height: 46px;
+  	letter-spacing: 3px;
+
+  	&:hover {
+  		text-decoration: none;
+  		background: lighten($purple, 5%);
+  	}
 }
