@@ -17,12 +17,12 @@
 			</h1>
 		</div> -->
 		
-		<a href="/">
+		<a class="logo-wrap" href="/">
 			<div class="triangle"></div>
-			<h1 class="h4">{{ site.theme.name }}</h1>
+			<h1 class="site-title">{{ site.theme.name }}</h1>
 		</a>
 		
-		<nav class="nav__tags">
+		<nav class="nav nav__tags">
 			<ul>
 				{% for page in site.pages %}
 					{% if page.tagpage == true %}  
@@ -34,19 +34,21 @@
 			</ul>
 	</header>
 
-	<footer class="sitenav__footer">
-		<nav class="nav__pages">
+	<footer class="col-md-3 sitenav__footer">
+		<nav class="nav nav__pages">
 			<ul>
-
-				<li><a href="/about/">ABOUT</a></li>
-				<li><a href="/portfolio/">PORTFOLIO</a></li>
-				<li><a href="/contact/">CONTACT</a></li>
-
+				<li><a class="page-link" href="/about/">ABOUT</a></li>
+				<li><a class="page-link" href="/portfolio/">PORTFOLIO</a></li>
+				<li><a class="page-link" href="/contact/">CONTACT</a></li>
+			</ul>
+		</nav>
+		
+		<nav class="nav nav__social">
+			<ul>
 				<!-- Social icons from Font Awesome, if enabled -->
 				{% include icons.html %}
 			</ul>
 		</nav>
-
-		<p class="h6">&copy;2015 Tom Hewitt</p>
+		<p class="copyright">&copy;2015 Tom Hewitt</p>
 	</footer>
 </section>

@@ -23,6 +23,8 @@ $triangleborder: 40px;
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	padding: 0;
+	opacity: 0.8;
 }
 
 
@@ -60,19 +62,27 @@ $triangleborder: 40px;
 	}
 }
 
+h1.site-title {
+	font-size: 0.8em;
+	font-style: italic;
+	text-align: center;
+	letter-spacing: 0.3em;
+	transition: all 0.3s ease;
+}
 
+.logo-wrap {
+	&:hover {
+		text-decoration: none;
+		h1.site-title {
+			transform: scale(1.1);
+		}
+	}
+}
 // =====================================================================================
 // NAVIGATIONS
 // =====================================================================================
-.nav__tags {
-
-}
-
-.nav__pages {
-	
-}
-
-.nav__tags {
+.nav {
+	width: 100%;
 	ul {
 		padding: 0;
 	}
@@ -82,14 +92,44 @@ $triangleborder: 40px;
 	}
 }
 
+.nav__tags {
+	margin-top: 35px;
+}
+
+.nav__pages {
+	
+}
+
+.nav__social {
+	ul {
+		padding: 0 20px;
+	}
+	li {
+		width: 25%;
+		float: left;
+		text-align: center;
+		font-size: 1.2em;
+		line-height: 1.8em;
+	}
+}
+
+p.copyright {
+	text-align: center;
+	padding: 10px;
+	font-size: 0.8em;
+	font-style: italic;
+	letter-spacing: 0.1em;
+}
+
 // shame...
 .page-link {
 	width: 100%;
 	display: block;
-	padding: 0 15px;
-	font-size: 18px;
-  	line-height: 46px;
-  	letter-spacing: 3px;
+	padding: 0 25px;
+	font-size: 1.1em;
+  	line-height: 2.4em;
+  	letter-spacing: 0.2em;
+  	transition: all 0.3s ease;
 
   	&:hover {
   		text-decoration: none;
