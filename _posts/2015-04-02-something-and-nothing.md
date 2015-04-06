@@ -4,31 +4,11 @@ title: Markdown and HTML
 tags: [Design, Development, Javascript, CSS, Opinion, Product]
 ---
 
-Jeykll supports the use of [Markdown](http://daringfireball.net/projects/markdown/syntax) with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.
 
-Tables have also been extended from Markdown:
+Jeykll [Markdown](http://daringfireball.net/projects/markdown/syntax).
 
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+### Image:
 
-Here's an example of an image, which is included using Markdown:
+![A funky image](/img/_TEST.png)
 
-![Geometric pattern with fading gradient](/img/sample_feature_img_2.png)
-
-Highlighting for code in Jekyll is done using Pygments or Rouge. This theme makes use of Pygments by default.
-
-{% highlight js %}
-// count to ten
-for (var i = 1; i <= 10; i++) {
-    console.log(i);
-}
-
-// count to twenty
-var j = 0;
-while (j < 20) {
-    j++;
-    console.log(j);
-}
-{% endhighlight %}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quod, cumque, harum nulla repudiandae qui hic a officia dolor aperiam distinctio pariatur quaerat ipsa quae ipsam repellat alias incidunt eum.

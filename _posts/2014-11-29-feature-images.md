@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Feature images
-feature-img: "img/sample_feature_img.png"
+feature-img: "img/_TEST.png"
 sample-img: "img/anniversary.jpg"
 custom-id: "anniversary"
 ---
