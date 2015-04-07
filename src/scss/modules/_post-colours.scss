@@ -1,9 +1,0 @@
-
-#anniversary {
-	$color1: #D9F0F6;
-	$color2: #B3646F;
-	.post__sample--gradient {
-		background: $color1;
-		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
-	}
-}
