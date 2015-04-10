@@ -5,7 +5,7 @@
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
     <link>/</link>
     <description>A blog... it&#39;s my blog...</description>
-    <pubDate>Fri, 10 Apr 2015 22:06:37 +0100</pubDate>
+    <pubDate>Fri, 10 Apr 2015 23:55:31 +0100</pubDate>
     
       <item>
         <title>ALL OVER IT</title>
@@ -15,7 +15,7 @@
 
 &lt;h3 id=&quot;image&quot;&gt;Image:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/_TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/img/TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;pygments&quot;&gt;Pygments&lt;/h3&gt;
 
@@ -35,7 +35,7 @@
 
 &lt;h3 id=&quot;image&quot;&gt;Image:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/_TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/img/TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quod, cumque, harum nulla repudiandae qui hic a officia dolor aperiam distinctio pariatur quaerat ipsa quae ipsam repellat alias incidunt eum.&lt;/p&gt;
 </description>
@@ -50,7 +50,7 @@
 
 &lt;h3 id=&quot;image&quot;&gt;Image:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/_TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/img/TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;pygments&quot;&gt;Pygments&lt;/h3&gt;
 
@@ -109,7 +109,7 @@
 
 &lt;h3 id=&quot;image&quot;&gt;Image:&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/sample_feature_img_2.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/img/TEST.png&quot; alt=&quot;A funky image&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;pygments&quot;&gt;Pygments&lt;/h3&gt;
 
