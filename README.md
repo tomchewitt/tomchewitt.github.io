@@ -1,3 +1,5 @@
 # tomchewitt.github.io
-Mysite
-`
+
+To deploy to live...
+
+`bash deploy.sh`
