@@ -1,0 +1,53 @@
+theme: 
+  # GLOBALS
+  name: "TOM HEWITT"
+  title: "Tom Does Digital"
+  description: "A blog... it's my blog..."
+
+  # Icons
+  rss: false
+  email_address: # full email address, e.g. "sam@example.com"
+  behance: "tomchewitt"
+  bitbucket:
+  dribbble: 
+  facebook: 
+  flickr: 
+  github: "tomchewitt"
+  google_plus: 
+  instagram: 
+  linkedin: "http://uk.linkedin.com/in/tomphewitt" # full URL
+  pinterest: 
+  reddit: 
+  soundcloud: 
+  stack_exchange:  # full URL
+  steam: 
+  tumblr: 
+  twitter: "twitter"
+  wordpress: 
+  youtube: 
+  
+  # Scripts
+  google_analytics: "UA-16424514-4"
+  disqus_shortname: "tomchewitt"
+
+# PAGINATION
+paginate: 100
+paginate_path: "page:num"
+
+# BUILD SETTINGS
+highlighter: pygments
+exclude: [
+  "node_modules",
+  "src",
+  "Gruntfile.js",
+  "package.json",
+  "Gemfile",
+  "Gemfile.lock",
+  "README.md",
+  "deploy.sh"
+]
+
+
+# JEKYLL CONFIG
+# permalink:     date
+# paginate_path: /page:num

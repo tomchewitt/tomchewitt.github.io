@@ -1,0 +1,54 @@
+    <div class="row no-gutter home">
+        <div class="breadcrumbs">
+            <p>HOME  <span class="filter -list">LIST</span><span class="filter -box">BOX</span></p>
+            
+        </div>
+        <ul class="post__sample-wrap">
+        {% for post in paginator.posts %}
+            <li id="{{ post.custom-id }}" class="col-md-6 post__sample">
+                <a class="post-link" href="{{ base }}{{ post.url }}">
+                {% if post.sample-img %}
+                    <img class="post__sample--img" src="{{ post.sample-img }}">
+                {% endif %}
+                    <div class="post__sample--gradient"></div>
+                    <div class="post__sample--wrap">
+                        <header class="post__sample--header">
+                            <h1>{{ post.title }}</h1>
+                            <p class="h5">{{ post.date | date: "%-d/%-m/%Y" }}</p>
+                        </header>
+
+                        <div class="post__sample--excerpt">
+                            <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                        </div>
+                    </div>
+
+                    <div class="post__read-more">
+                        <span>MORE</span>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
+        <!-- {% if paginator.total_pages > 1 %}
+            <div class="pagination">
+
+            {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
+            <i class="fa fa-chevron-left"></i> 
+            {{ site.theme.str_prev }}
+            </a>
+            {% endif %}
+
+            {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >
+            {{ site.theme.str_next }} 
+            <i class="fa fa-chevron-right"></i>
+            </a>
+            {% endif %}
+
+
+            </div>
+        {% endif %} -->
+
+    </div>
