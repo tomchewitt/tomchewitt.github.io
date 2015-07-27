@@ -1,0 +1,23 @@
+{
+	"ecmaFeatures": {
+		"arrowFunctions": false,
+		"blockBindings": false,
+		"classes": false,
+		"modules": true,
+		"defaultParams": true,
+		"forOf": false,
+		"jsx": false
+	},
+	"env": {
+		"browser": true,
+		"es6": false
+	},
+	"rules": {
+		"semi": 2,
+		"eqeqeq": 0,
+		"curly": 2,
+		"quotes": [1, "single"],
+		"no-shadow": 0,
+		"no-console": 0
+	}
+}

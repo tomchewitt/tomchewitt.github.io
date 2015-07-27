@@ -1,0 +1,54 @@
+<section class="col-md-3 sitenav">
+	<header class="sitenav__header">
+
+		<!-- <div class="branding">
+			{% if site.theme.gravatar %}
+			<a href="{{ site.baseurl }}/">
+				<img class="avatar" src="https://secure.gravatar.com/avatar/{{ site.theme.gravatar }}?s=100" alt=""/>
+			</a>
+			{% elsif site.theme.avatar %}
+			<a href="{{ site.baseurl }}/">
+				<img class="avatar" src="/img/{{ site.theme.avatar }}" alt=""/>
+			</a>
+			{% endif %}
+			
+			<h1 class="site-title">
+				<a href="{{ site.baseurl }}/">{{ site.theme.title }}</a>
+			</h1>
+		</div> -->
+		
+		<a class="logo-wrap" href="/blog/">
+			<div class="triangle"></div>
+			<h1 class="site-title">{{ site.theme.name }}</h1>
+		</a>
+		
+		<nav class="nav nav__tags">
+			<ul>
+				{% for page in site.pages %}
+					{% if page.tagpage == true %}  
+					<li>
+						<a class="page-link" href="/blog{{ page.url }}">{{ page.title }}</a>
+					</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+	</header>
+
+	<footer class="col-md-3 sitenav__footer">
+		<nav class="nav nav__pages">
+			<ul>
+				<li><a class="page-link" href="/about/">ABOUT</a></li>
+				<li><a class="page-link" href="/portfolio/">PORTFOLIO</a></li>
+				<li><a class="page-link" href="/contact/">CONTACT</a></li>
+			</ul>
+		</nav>
+		
+		<nav class="nav nav__social">
+			<ul>
+				<!-- Social icons from Font Awesome, if enabled -->
+				{% include icons.html %}
+			</ul>
+		</nav>
+		<p class="copyright">&copy;2015 Tom Hewitt</p>
+	</footer>
+</section>

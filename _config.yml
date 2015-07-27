@@ -1,53 +1,65 @@
-theme: 
-  # GLOBALS
-  name: "TOM HEWITT"
-  title: "Tom Does Digital"
-  description: "A blog... it's my blog..."
+# Where things are
+source:      ./src
+destination: ./dest
+plugins:     ./src/_plugins
+layouts:     ./src/_layouts
+data_source: ./src/_data
+collections: null
 
-  # Icons
-  rss: false
-  email_address: # full email address, e.g. "sam@example.com"
-  behance: "tomchewitt"
-  bitbucket:
-  dribbble: 
-  facebook: 
-  flickr: 
-  github: "tomchewitt"
-  google_plus: 
-  instagram: 
-  linkedin: "http://uk.linkedin.com/in/tomphewitt" # full URL
-  pinterest: 
-  reddit: 
-  soundcloud: 
-  stack_exchange:  # full URL
-  steam: 
-  tumblr: 
-  twitter: "twitter"
-  wordpress: 
-  youtube: 
-  
-  # Scripts
-  google_analytics: "UA-16424514-4"
-  disqus_shortname: "tomchewitt"
+# Filtering Content
+future: false
 
-# PAGINATION
-paginate: 100
-paginate_path: "page:num"
-
-# BUILD SETTINGS
+# Conversion
+markdown: kramdown
+excerpt_separator: "\n\n"
 highlighter: pygments
 exclude: [
   "node_modules",
-  "src",
-  "Gruntfile.js",
+  "_src",
+  "gulpfile.js",
   "package.json",
   "Gemfile",
   "Gemfile.lock",
   "README.md",
-  "deploy.sh"
 ]
 
+# Outputting
+permalink:     date
+paginate_path: /page:num
+paginate:	   100
+timezone:      null
 
-# JEKYLL CONFIG
-# permalink:     date
-# paginate_path: /page:num
+quiet:    false
+defaults: []
+
+
+theme:
+  name: "TOM HEWITT"
+  title: "Tom Does Digital"
+  description: "A blog... it's my blog..."
+
+  # THEME ICONS
+  rss: false
+  email_address: # full email address, e.g. "sam@example.com"
+  behance: "tomchewitt"
+  bitbucket:
+  dribbble:
+  facebook:
+  flickr:
+  github: "tomchewitt"
+  google_plus:
+  instagram:
+  linkedin: "http://uk.linkedin.com/in/tomphewitt" # full URL
+  pinterest:
+  reddit:
+  soundcloud:
+  stack_exchange:  # full URL
+  steam:
+  tumblr:
+  twitter: "twitter"
+  wordpress:
+  youtube:
+
+  # THEME SCRIPTS
+  google_analytics: "UA-16424514-4"
+  disqus_shortname: "tomchewitt"
