@@ -15,12 +15,12 @@ excerpt_separator: "\n\n"
 highlighter: pygments
 exclude: [
   "node_modules",
-  "_src",
   "gulpfile.js",
   "package.json",
   "Gemfile",
   "Gemfile.lock",
   "README.md",
+  "_OLD",
 ]
 
 # Outputting
