@@ -13,19 +13,10 @@ future: false
 markdown: kramdown
 excerpt_separator: "\n\n"
 highlighter: pygments
-exclude: [
-  "node_modules",
-  "gulpfile.js",
-  "package.json",
-  "Gemfile",
-  "Gemfile.lock",
-  "README.md",
-  "_OLD",
-]
 
 # Outputting
-permalink:     date
-paginate_path: /page:num
+permalink:     /post/:title/
+paginate_path: /:num
 paginate:	   100
 timezone:      null
 
