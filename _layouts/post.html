@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-
+	<article>
 		<h1 class="post__title">{{ page.title }}</h1>
 		<p>{{ page.date | date: "%B %-d, %Y" }}{% if page.tags %} |{% for tag in page.tags %} {{ tag }}{% endfor %}{% endif %}{% if page.author %} | {{ page.author }}{% endif %}</p>
 
@@ -9,6 +9,9 @@ layout: default
 			{{ content }}
 		</section>
 
-        <div class="comments col-md-10 col-md-offset-1">
+        <div class="comments">
             {% include disqus.html %}
         </div>
+
+	</article>
+

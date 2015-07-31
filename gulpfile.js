@@ -1,98 +1,67 @@
 // LOAD IN REQS
 var gulp = require('gulp'),
-	autoprefixer = require('gulp-autoprefixer'),
-	browserify = require('browserify'),
-	source = require('vinyl-source-stream'),
-	watchify = require('watchify'),
-	gutil = require('gulp-util'),
-	sass = require('gulp-ruby-sass'),
+	sass = require('gulp-sass'),
+	prefix = require('gulp-autoprefixer'),
+	watch = require('gulp-watch'),
 	size = require('gulp-size'),
-	filter = require('gulp-filter'),
-	eslint = require('gulp-eslint'),
-	uglify = require('gulp-uglify'),
-	rename = require('gulp-rename'),
-	streamify = require('gulp-streamify');
+	colors = require('colors/safe'),
+	dateformat = require('dateformat');
 
 
-// THEMENAME
-var THEMENAME = 'reporting';
-
-
-// FUNCTIONS
-var watch,
-	F = {
-	_browserify: function() {
-		var b = browserify({
-			cache: {},
-			packageCache: {},
-			fullPaths: false,
-			debug: true
-		});
-
-		if (watch) {
-			// if watch is enable, wrap this bundle inside watchify
-			b = watchify(b);
-			b.on('update', function(){
-				F._bundle(b);
-			});
-		}
-
-		b.add('./wp-content/themes/' + THEMENAME + '/asset/src/js/app.js');
-		F._bundle(b);
-	},
-	_bundle: function(b) {
-		var start = Date.now();
-		b.bundle()
-			.on('error', function(err) {
-				gutil.log(gutil.colors.blue('ERROR: ' + err.message));
-				this.emit('end');
-				})
-			.pipe(source('bundle.js'))
-			.pipe(gulp.dest('./wp-content/themes/' + THEMENAME + '/asset/js'))
-			.pipe(streamify(uglify()))
-			.pipe(rename('bundle.min.js'))
-			.pipe(gulp.dest('./wp-content/themes/' + THEMENAME + '/asset/js'));
-
-		gutil.log(gutil.colors.blue('[Browserify] ') + (Date.now() - start) + 'ms ' + size());
-	}
+// PATHS
+var paths = {
+    styles: {
+        src: '_scss',
+        files: '_scss/**/*.scss',
+        dest: 'asset/css'
+    },
+    scripts: {
+    	src: '',
+    	files: '',
+    	dest: ''
+    },
+    templates: {
+    	src: '',
+    	files: '',
+    	dest: ''
+    }
 }
 
+// ERROR LOGGING
+var displayError = function(error) {
+    var errorString = '[' + colors.red.bold(error.plugin) + ']';
+    errorString += ' ' + colors.grey.italic(error.message.replace("\n",''));
 
-// SETUP TASKS
-gulp.task('browserify-nowatch', function(){
-	watch = false;
-	F._browserify();
-});
+    // If the error contains the filename or line number add it to the string
+    if (error.fileName) {
+        errorString += ' in ' + error.fileName;
+    }
+    if (error.lineNumber) {
+        errorString += ' on line ' + error.lineNumber;
+    }
+    console.error(errorString);
+}
 
-gulp.task('browserify-watch', function(){
-	watch = true;
-	F._browserify();
-});
-
-
-// LINTING
-gulp.task('lint', function() {
-	return gulp.src('./wp-content/themes/' + THEMENAME + '/asset/src/js/**/*.js')
-		.pipe(eslint())
-		.pipe(eslint.format('stylish'));
-});
-
-
-// STYLES
-gulp.task('styles', function () {
-	return sass('./wp-content/themes/' + THEMENAME + '/asset/src/sass/bundle.scss', { style: 'compressed' })
-			.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'ios 6', 'android 4'))
-			.pipe(size())
-			.pipe(gulp.dest('./wp-content/themes/' + THEMENAME + '/asset/css'))
-			.pipe(filter('**/*.css'))
-			.pipe(rename('bundle.min.css'))
-			.pipe(gulp.dest('./wp-content/themes/' + THEMENAME + '/asset/css'));
+// STYLE TASK
+gulp.task('styles', function (){
+    gulp.src(paths.styles.files)
+	    .pipe(sass({
+	        outputStyle: 'compressed',
+	        sourceMap: 'sass',
+	        includePaths : [paths.styles.src]
+	    }))
+	    .on('error', function(err){ displayError(err)})
+	    .pipe(prefix('last 2 version', 'safari 5', 'ie 9', 'ios 6', 'android 4'))
+	    .pipe(size())
+	    .pipe(gulp.dest(paths.styles.dest))
 });
 
 
 // WATCH TASK
-gulp.task('watch', ['browserify-watch'], function() {
-	gulp.watch('./wp-content/themes/' + THEMENAME + '/asset/src/js/**/*.js', ['lint']);
-	gulp.watch('./wp-content/themes/' + THEMENAME + '/asset/src/sass/**/*.scss', ['styles']);
+gulp.task('watch', function() {
+	 gulp.watch(paths.styles.files, ['styles'])
+		.on('change', function(e) {
+			var now = new Date();
+		    console.log('[' + colors.grey(dateformat(now, 'HH:MM:ss')) + '] ' + colors.cyan.italic(e.path.split(__dirname + '/')[1]) + ' : ' + e.type);
+		});
 });
-
