@@ -65,9 +65,10 @@ var watch,
 				this.emit('end');
 			})
 			.pipe(source('bundle.js'))
-			.pipe(gulp.dest(paths.scripts.dest))
-			.pipe(streamify(uglify()))
-			.pipe(rename('bundle.min.js'))
+			.pipe(streamify(sourcemaps.init({loadMaps: true})))
+				.pipe(streamify(uglify()))
+				.pipe(rename('bundle.min.js'))
+			.pipe(streamify(sourcemaps.write(paths.maps)))
 			.pipe(gulp.dest(paths.scripts.dest))
 			.pipe(streamify(size()))
 			.pipe(gulp.dest(paths.scripts.sitedest));
