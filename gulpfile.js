@@ -2,66 +2,139 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	prefix = require('gulp-autoprefixer'),
-	watch = require('gulp-watch'),
-	size = require('gulp-size'),
 	colors = require('colors/safe'),
-	dateformat = require('dateformat');
+	dateformat = require('dateformat'),
+	sourcemaps = require('gulp-sourcemaps')
+	browserify = require('browserify'),
+	source = require('vinyl-source-stream'),
+	watchify = require('watchify'),
+	gutil = require('gulp-util'),
+	size = require('gulp-size'),
+	eslint = require('gulp-eslint'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	streamify = require('gulp-streamify'),
+	watch = require('gulp-watch');
 
 
 // PATHS
 var paths = {
+	maps: '../maps',
     styles: {
         src: '_scss',
         files: '_scss/**/*.scss',
-        dest: 'asset/css'
+        dest: 'asset/css',
+        sitedest: '_site/asset/css'
     },
     scripts: {
-    	src: '',
-    	files: '',
-    	dest: ''
-    },
-    templates: {
-    	src: '',
-    	files: '',
-    	dest: ''
+    	src: '_js/app.js',
+    	files: '_js/**/*.js',
+    	dest: 'asset/js',
+    	sitedest: '_site/asset/js'
     }
 }
 
-// ERROR LOGGING
-var displayError = function(error) {
-    var errorString = '[' + colors.red.bold(error.plugin) + ']';
-    errorString += ' ' + colors.grey.italic(error.message.replace("\n",''));
 
-    // If the error contains the filename or line number add it to the string
-    if (error.fileName) {
-        errorString += ' in ' + error.fileName;
-    }
-    if (error.lineNumber) {
-        errorString += ' on line ' + error.lineNumber;
-    }
-    console.error(errorString);
+// FUNCTIONS
+var watch,
+	F = {
+	_browserify: function() {
+		var b = browserify({
+			cache: {},
+			packageCache: {},
+			fullPaths: false,
+			debug: true
+		});
+
+		if (watch) {
+			// if watch is enable, wrap this bundle inside watchify
+			b = watchify(b);
+			b.on('update', function(){
+				F._bundle(b);
+			});
+		}
+
+		b.add(paths.scripts.src);
+		F._bundle(b);
+	},
+	_bundle: function(b) {
+		var start = Date.now();
+		b.bundle()
+			.on('error', function(err) {
+				gutil.log(gutil.colors.red('ERROR: ' + err.message));
+				this.emit('end');
+			})
+			.pipe(source('bundle.js'))
+			.pipe(gulp.dest(paths.scripts.dest))
+			.pipe(streamify(uglify()))
+			.pipe(rename('bundle.min.js'))
+			.pipe(gulp.dest(paths.scripts.dest))
+			.pipe(streamify(size()))
+			.pipe(gulp.dest(paths.scripts.sitedest));
+
+		gutil.log(gutil.colors.blue('[Browserify] ') + (Date.now() - start) + 'ms ');
+	},
+	_logger: function(e) {
+		var now = new Date();
+	    console.log(
+	    	'[' + gutil.colors.grey(dateformat(now, 'HH:MM:ss')) + '] ' +
+	    	gutil.colors.cyan.italic(e.path.split(__dirname + '/')[1]) +
+	    	' : ' + e.type
+	    );
+	}
 }
+
+
+
+// SETUP TASKS
+gulp.task('browserify-nowatch', function(){
+	watch = false;
+	F._browserify();
+});
+
+gulp.task('browserify-watch', function(){
+	watch = true;
+	F._browserify();
+});
+
+
+// LINTING
+gulp.task('lint', function() {
+	return gulp.src(paths.scripts.files)
+		.pipe(eslint())
+		.pipe(eslint.format('stylish'));
+});
+
 
 // STYLE TASK
 gulp.task('styles', function (){
     gulp.src(paths.styles.files)
-	    .pipe(sass({
-	        outputStyle: 'compressed',
-	        sourceMap: 'sass',
-	        includePaths : [paths.styles.src]
-	    }))
-	    .on('error', function(err){ displayError(err)})
-	    .pipe(prefix('last 2 version', 'safari 5', 'ie 9', 'ios 6', 'android 4'))
+    	.pipe(sourcemaps.init())
+		    .pipe(sass({
+		        outputStyle: 'compressed',
+		        sourceMap: 'sass',
+		        includePaths : [paths.styles.src]
+		    }))
+		    .on('error', function(err) {
+				gutil.log(gutil.colors.red('ERROR: ' + err.message));
+				this.emit('end');
+			})
+		    .pipe(prefix('last 2 version', 'safari 5', 'ie 9', 'ios 6', 'android 4'))
+		.pipe(sourcemaps.write(paths.maps))
 	    .pipe(size())
 	    .pipe(gulp.dest(paths.styles.dest))
+	    .pipe(gulp.dest(paths.styles.sitedest));
 });
 
 
 // WATCH TASK
-gulp.task('watch', function() {
-	 gulp.watch(paths.styles.files, ['styles'])
+gulp.task('watch', ['browserify-watch'], function() {
+	gulp.watch(paths.scripts.files, ['lint'])
 		.on('change', function(e) {
-			var now = new Date();
-		    console.log('[' + colors.grey(dateformat(now, 'HH:MM:ss')) + '] ' + colors.cyan.italic(e.path.split(__dirname + '/')[1]) + ' : ' + e.type);
+			F._logger(e);
+		});
+	gulp.watch(paths.styles.files, ['styles'])
+		.on('change', function(e) {
+			F._logger(e);
 		});
 });
