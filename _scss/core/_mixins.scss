@@ -29,3 +29,152 @@
         @content;
     }
 }
+
+
+// MIXINS
+
+
+// *****************************************************************
+// WEBKIT TEXT GRADIENT
+// *****************************************************************
+@mixin textgradient($color1, $color2) {
+    color: $color1;
+    // TYPE
+    background: transparent;
+    background: -webkit-gradient(linear, bottom left, top right, color-stop(0%, $color1), color-stop(100%, $color2));
+    background: -webkit-linear-gradient(45deg, $color1 0%, $color2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+/* USAGE
+.selector {
+    @include textgradient(#color, #color2);
+}
+*/
+
+
+// *****************************************************************
+// FONTS
+// *****************************************************************
+@mixin fontface($name, $argument...) {
+    font-family: $name;
+    src: url('../font/#{$argument}.eot');
+    src: url('../font/#{$argument}.eot?#iefix') format('embedded-opentype'),
+         url('../font/#{$argument}.woff') format('woff'),
+         url('../font/#{$argument}.ttf') format('truetype'),
+         url('../font/#{$argument}.svg##{$name}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* USAGE
+@fontface {
+    @include fontface(fontname, font/path/name);
+}
+*/
+
+// *****************************************************************
+// RESPONSIVE BREAKPOINTS
+// *****************************************************************
+@mixin breakpoint($point) {
+    @if $point == large {
+        @media (min-width: 64.375em) {
+            @content;
+        }
+    }
+    @else if $point == medium {
+        @media (min-width: 50em) {
+            @content;
+        }
+    }
+    @else if $point == small {
+        @media (min-width: 37.5em)  {
+            @content;
+        }
+    }
+    @else {
+        @media (#{$point})  {
+            @content;
+        }
+    }
+}
+
+/* USAGE
+.selector {
+    width: 75%;
+    @include breakpoint(large) { width: 60%; }
+    @include breakpoint(medium) { width: 80%; }
+    @include breakpoint(small) { width: 95%; }
+    @include breakpoint(320px) { width: 100%; }
+}
+*/
+
+
+// *****************************************************************
+// CLEARFIX
+// *****************************************************************
+@mixin clearfix() {
+    & {
+        *zoom: 1;
+    }
+    &:before, &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/* USAGE
+.selector {
+    @include clearfix();
+}
+*/
+
+
+// *****************************************************************
+// TEXT REPLACEMENT (instead of text-indent)
+// *****************************************************************
+@mixin text-replacement() {
+    border: 0;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+}
+
+/* USAGE
+.selector {
+    @include text-replacement();
+}
+*/
+
+
+// *****************************************************************
+// SVG BG IMAGES W/ PNG & RETINA FALLBACK
+// *****************************************************************
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (min-device-pixel-ratio: 1.5) {
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+/* USAGE
+.selector {
+    @include background-image('pattern');
+}
+*/

@@ -4,7 +4,6 @@
 @import "core/reset";
 
 // BASE
-// @import "core/fonts";
 @import "core/base";
 
 // MODULES
@@ -12,6 +11,7 @@
 @import "modules/font-styles";
 @import "modules/basic-setup";
 @import "modules/sidebar";
+@import "modules/content";
 
 // :$
 @import "shame";

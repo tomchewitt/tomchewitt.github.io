@@ -7,3 +7,17 @@
  *
  */
 
+.comments {
+	a {
+		color: $red;
+	}
+	p {
+		color: $purple;
+	}
+}
+
+#disqus_thread {
+	border-top: solid 1px rgba($purple, 0.2);
+	margin-top: 40px;
+	padding: 40px 0;
+}

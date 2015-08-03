@@ -17,26 +17,22 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch');
 
 
-// PATHS
 var paths = {
-	maps: '../maps',
-    styles: {
-        src: '_scss',
-        files: '_scss/**/*.scss',
-        dest: 'asset/css',
-        sitedest: '_site/asset/css'
-    },
-    scripts: {
-    	src: '_js/app.js',
-    	files: '_js/**/*.js',
-    	dest: 'asset/js',
-    	sitedest: '_site/asset/js'
-    }
-}
-
-
-// FUNCTIONS
-var watch,
+		maps: '../maps',
+	    styles: {
+	        src: '_scss',
+	        files: '_scss/**/*.scss',
+	        dest: 'asset/css',
+	        sitedest: '_site/asset/css'
+	    },
+	    scripts: {
+	    	src: '_js/app.js',
+	    	files: '_js/**/*.js',
+	    	dest: 'asset/js',
+	    	sitedest: '_site/asset/js'
+	    }
+	},
+	watch,
 	F = {
 	_browserify: function() {
 		var b = browserify({

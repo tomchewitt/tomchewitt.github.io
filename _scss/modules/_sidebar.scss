@@ -1,0 +1,73 @@
+section.sidebar {
+	width: 25%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background: $purple;
+	color: $white;
+	overflow: auto;
+
+	a {
+		color: $white;
+	}
+}
+
+// =====================================================================================
+// SITE NAV (sidebar)
+// =====================================================================================
+$triangleborder: 40px;
+
+
+// =====================================================================================
+// TRIANGLE
+// =====================================================================================
+.triangle {
+	width: $triangleborder * 2;
+	height: ($triangleborder * 2) * 0.866;
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 40px;
+
+	&::before, &::after {
+		content: "";
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	&::before {
+		border-bottom: #{($triangleborder*2) * 0.866} solid rgba($red, 0.7);
+		border-left: $triangleborder solid transparent;
+		border-right: $triangleborder solid transparent;
+		transform: scale(0.5) translateY(50%);
+	}
+
+	&::after {
+		border-left: $triangleborder solid transparent;
+		border-right: $triangleborder solid transparent;
+		border-top: #{($triangleborder*2) * 0.866} solid rgba($blue, 0.7);
+	}
+}
+
+h1.site-title {
+	font-size: 0.8em;
+	font-style: italic;
+	text-align: center;
+	letter-spacing: 0.3em;
+	transition: all 0.3s ease;
+}
+
+.logo-wrap {
+	&:hover {
+		text-decoration: none;
+		h1.site-title {
+			transform: scale(1.1);
+		}
+	}
+}
+
+
