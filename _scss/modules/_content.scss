@@ -2,17 +2,72 @@
 section.content {
 	width: 80%;
 	margin-left: 20%;
-	background: $lightestgrey;
+	// background: $lightestgrey; // testing
 	position: relative;
 	z-index: 1;
+}
+
+
+.post-header {
+	width: 100%;
+	height: 400px;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow: hidden;
+	position: relative;
+
+	&::before, &::after {
+		width: 100%;
+		height: 40px;
+		position: absolute;
+		bottom: 0;
+		z-index: 2;
+		content: "";
+		background: $white;
+	}
+	&::before {
+		left: 0;
+		transform: translateX(-51.4%) skew(225deg);
+	}
+	&::after {
+		right: 0;
+		transform: translateX(51.4%) skew(-225deg);
+	}
+}
+
+.post-header-content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: $white;
+
+	.tag, .date {
+		display: inline-block;
+	}
+}
+
+.post-header-gradient {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background: rgba($blue, 0.7);
 }
 
 
 .post-content {
 	width: 60%;
 	margin: 0 auto;
+	padding-top: 35px;
 	text-align: left;
-	background: grey;
+	// background: grey; // testing
 }
 
 .post-media {
