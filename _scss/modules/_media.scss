@@ -1,0 +1,75 @@
+.post-media {
+	width: 166.66666666666666%;
+	background: $black;
+	margin-left: -33.3333333333333%;
+	text-align: center;
+
+	ul {
+		width: 100%;
+
+		li {
+			width: 100%;
+			display: block;
+			background: #999;
+			padding: 100px 0;
+			clear: both;
+
+			img {
+				box-shadow: 0 10px 20px rgba($black, 0.2);
+			}
+
+			&.curved {
+				img {
+					border-top-left-radius: 4px;
+					border-top-right-radius: 4px;
+				}
+
+			}
+
+			&.full {
+				padding: 0;
+
+				img {
+					box-shadow: none;
+					width: 100%;
+					max-width: 100%;
+				}
+			}
+
+			&.double {
+				padding: 0;
+
+				img {
+					width: 50%;
+					float: left;
+					box-shadow: none;
+				}
+			}
+			&.triple {
+				padding: 0;
+
+				img {
+					width: 33.3333333333333333%;
+					float: left;
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+	img {
+		max-width: 80%;
+	}
+}
+
+.w50 {
+	width: 50%;
+	float: left;
+}
+
+.w33 {
+	width: 33.3333333333333333333%;
+	float: left;
+}
+
+

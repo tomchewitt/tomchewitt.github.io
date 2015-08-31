@@ -1,4 +1,4 @@
 highlighter: pygments
-permalink: /post/:title/
+permalink: /post/:year-:month-:day-:title/
 paginate_path: /:num
 exclude: ['Gemfile', 'Gemfile.lock', 'gulpfile.js', 'package.json', 'README.md', 'node_modules']

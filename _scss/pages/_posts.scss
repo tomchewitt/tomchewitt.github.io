@@ -1,11 +1,633 @@
 
 
+/**
+ * KOOZAC
+ */
+#koozac {
+	$color1: #fcc60a;
+	$color2: #fe7726;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: #FDF64B;
+		}
+		.color-2 {
+			background: #FF683F;
+		}
+		.color-3 {
+			background: #5AB889;
+		}
+		.color-4 {
+			background: #34D92F;
+		}
+		.color-5 {
+			background: #1DCDED;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: #D37B32;
+		}
+		li:nth-child(3) {
+			background: #DD690A;
+		}
+	}
+}
 
-// #anniversary {
-// 	$color1: #D9F0F6;
-// 	$color2: #B3646F;
-// 	.post__sample--gradient {
-// 		background: $color1;
-// 		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
-// 	}
-// }
+
+/**
+ * COLOURFLOOD
+ */
+#colourflood {
+	$color1: #E62262;
+	$color2: #0C1B49;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, #7F1A57 30%, $white 100%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #7F1A57;
+		}
+		.color-4 {
+			background: #7F6C8C;
+		}
+	}
+	.post-media {
+		.curved {
+			background: #7F1A57;
+		}
+		.full {
+			background: $white;
+		}
+	}
+
+	.hero {
+		background: #FFF;
+	}
+}
+
+
+
+/**
+ * LIPSUM
+ */
+#lipsum {
+	$color1: #40B37F;
+	$color2: #303B36;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color2 10%, $color1 100%);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: #297351;
+		}
+		.color-3 {
+			background: #A0F4CE;
+		}
+	}
+	.post-media {
+		.curved {
+			background: #2A4E40;
+		}
+	}
+}
+
+
+
+/**
+ * TIMER
+ */
+#timer {
+	$color1: #00AFF2;
+	$color2: #008ADC;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color2 10%, $color1 100%);
+	}
+	.palette {
+		.color-1 {
+			background: #0B77D1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #F79B34;
+		}
+	}
+	.post-media {
+		.curved {
+			background: $color1;
+		}
+	}
+}
+
+
+/**
+ * HEROES & GENERALS
+ */
+#hng {
+	$color1: #CDC195;
+	$color2: #6D4C39;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color2 40%, $color1 100%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: #EAB339;
+		}
+		.color-2 {
+			background: #534737;
+		}
+		.color-3 {
+			background: #856348;
+		}
+		.color-4 {
+			background: #6D4C39;
+		}
+		.color-5 {
+			background: #CBB45C;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: #534737;
+		}
+		li:nth-child(4) {
+			background: #6D4C39;
+		}
+		li:nth-child(5) {
+			background: #CDC195;
+		}
+		.full {
+			background: $white;
+			padding: 30px 0;
+		}
+	}
+}
+
+
+/**
+ * CTM TRAVEL
+ */
+#ctm-travel {
+	$color1: #1E488C;
+	$color2: #4871D3;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #5DBD50;
+		}
+		.color-4 {
+			background: #BBBBBB;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color2;
+		}
+		li:nth-child(3) {
+			background: #108A00;
+		}
+		.full {
+			background: $white;
+			min-width: 100%;
+			margin-bottom: -10px;
+			padding: 0;
+
+			img {
+				min-width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}
+
+
+/**
+ * SWAS
+ */
+#swas {
+	$color1: #A82A2B;
+	$color2: #EE7A79;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #E64C41;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: #DEDEDE;
+		}
+		li:nth-child(3) {
+			background: $color2;
+		}
+	}
+	.hero {
+		background: #E64C41;
+	}
+}
+
+
+
+/**
+ * GBM
+ */
+#gbm {
+	$color1: #071F28;
+	$color2: #134968;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #256484;
+		}
+		.color-4 {
+			background: #0C374C;
+		}
+	}
+	.post-media {
+		li:nth-child(2) {
+			background: #134968;
+		}
+		li:nth-child(3) {
+			background: #C7DFEA;
+		}
+	}
+	.hero {
+		background: #071F28;
+	}
+}
+
+/**
+ * SARAH
+ */
+#sarah {
+	$color1: #E9F7F8;
+	$color2: #553C63;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: #A9C7D2;
+		}
+		.color-3 {
+			background: #7A4D8B;
+		}
+
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color2;
+		}
+		li:nth-child(2) {
+			background: $color2;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+/**
+ * ANNIVERSARY
+ */
+#anniversary {
+	$color1: #D9F0F6;
+	$color2: #B3646F;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: #B3646F;
+		}
+		.color-3 {
+			background: #9D3A4E;
+		}
+
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color2;
+		}
+		li:nth-child(2) {
+			background: $color2;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+/**
+ * COLLECTIVE
+ */
+#collective {
+	$color1: #FFF;
+	$color2: #690318;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: #541D27;
+		}
+		.color-2 {
+			background: #272727;
+		}
+		.color-3 {
+			background: $color2;
+		}
+
+	}
+	.post-media {
+		li:nth-child(1), li:nth-child(2) {
+			background: $color2;
+		}
+		li:nth-child(3) {
+			background: #272727;
+		}
+		li:nth-child(4), li:nth-child(5) {
+			background: #541D27;
+
+			img {
+				box-shadow: none;
+			}
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+/**
+ * GEODIME
+ */
+#geodime {
+	$color1: #FB5C22;
+	$color2: #008081;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+/**
+ * LESDREAMERS
+ */
+
+#lesdreamers {
+	$color1: #BBB;
+	$color2: #819DB2;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: #8E2B34;
+		}
+		.color-2 {
+			background: #272727;
+		}
+		.color-3 {
+			background: $color2;
+		}
+
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: #8F9094;
+		}
+		li:nth-child(2) {
+			background: #7D6F65;
+		}
+		li:nth-child(3) {
+			background: #8E2B34;
+		}
+		li:nth-child(4) {
+			background: #819DB2;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
+/*
+#drips {
+	$color1: #127DC1;
+	$color2: #2E4957;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#pyramid {
+	$color1: #127DC1;
+	$color2: #4C4BB3;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#hover {
+	$color1: #449199;
+	$color2: #222B2E;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#cosplay {
+	$color1: #2D3B49;
+	$color2: #83426C;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#spinner {
+	$color1: #53B1DC;
+	$color2: #8ACFEF;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#flipbook {
+	$color1: #310527;
+	$color2: #891516;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#mensa {
+	$color1: #B95334;
+	$color2: #EAD85F;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#blur {
+	$color1: #FDFFC3;
+	$color2: #874478;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#geodime {
+	$color1: #FB5C22;
+	$color2: #008081;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#hor {
+	$color1: #171F14;
+	$color2: #5E5A41;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+#funky {
+	$color1: #666;
+	$color2: #333;
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 10%, $color2 100%);
+	}
+}
+
+ */

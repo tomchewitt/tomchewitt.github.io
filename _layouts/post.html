@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-	<article>
+	<article id="{{ page.uid }}">
 		<div class="post-header" style="background-image: url({{ page.background }});">
 			<div class="post-header-content">
 				<h1 class="post-title">{{ page.title }}</h1>
@@ -13,10 +13,10 @@ layout: default
 						{% endfor %}
 						</div>
 					{% endif %}
-					<span class="date">{{ page.date | date: "%B %-d, %Y" }}</span>
+					<span class="date">{{ page.date | date: "%d / %m / %Y" }}</span>
 				</div>
 			</div>
-			<span class="post-header-gradient"></span>
+			<span class="gradient"></span>
 		</div>
 
 		<section class="post-content">
