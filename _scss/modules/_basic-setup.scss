@@ -45,3 +45,27 @@ br {
 .svg-sprite {
     display: none;
 }
+
+
+/**
+ * FOOTER
+ */
+.footer {
+	width: 80%;
+	height: 60px;
+	margin-left: 20%;
+	display: block;
+	background: darken($purple, 4%);
+	position: relative;
+	z-index: 1;
+
+	p {
+		color: $white;
+		font-size: 14px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		margin: 0;
+		padding: 0 30px;
+		line-height: 60px;
+	}
+}

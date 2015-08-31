@@ -5,14 +5,16 @@ layout: default
 		<div class="post-header" style="background-image: url({{ page.background }});">
 			<div class="post-header-content">
 				<h1 class="post-title">{{ page.title }}</h1>
-				<p class="post-meta">
+				<div class="post-meta">
 					{% if page.tags %}
+						<div class="tag-wrap">
 						{% for tag in page.tags %}
-							<span class="tag"><i class="fa fa-tag"></i> {{ tag }}</span>
+							<span class="tag">{{ tag }}</span>
 						{% endfor %}
+						</div>
 					{% endif %}
 					<span class="date">{{ page.date | date: "%B %-d, %Y" }}</span>
-				</p>
+				</div>
 			</div>
 			<span class="post-header-gradient"></span>
 		</div>

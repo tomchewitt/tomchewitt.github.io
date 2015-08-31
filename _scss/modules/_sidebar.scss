@@ -43,7 +43,8 @@ $triangleborder: 40px;
 	}
 }
 
-h1.site-title {
+.site-title {
+	display: block;
 	font-family: $body-font;
 	font-size: 0.8em;
 	font-style: normal;
@@ -108,6 +109,55 @@ h1.site-title {
 		&:hover {
 			padding-left: 70px;
 			background: darken($purple, 4%);
+		}
+	}
+}
+
+
+/**
+ * SOCIAL NAVE
+ */
+nav.social-nav {
+	width: 20%;
+	height: 60px;
+	display: block;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: darken($purple, 4%);
+	text-align: center;
+
+	li {
+		width: 40px;
+		height: 60px;
+		display: inline-block;
+		float: none;
+		position: relative;
+
+		a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			transition: all 0.3s ease;
+		}
+
+		svg {
+			width: 20px;
+			height: 20px;
+			fill: $darkpurple;
+			position: absolute;
+			top: 20px;
+			left: 10px;
+			transition: all 0.3s ease;
+		}
+
+		a:hover {
+			background: $red;
+
+			svg {
+				fill: $white;
+				transform: translateY(-5px);
+			}
 		}
 	}
 }
