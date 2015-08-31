@@ -1,6 +1,26 @@
 ---
 layout: default
 ---
+
+{% assign post = page %}
+{% if post.tags.size > 0 %}
+    {% for post_tag in post.tags %}
+        {% for data_tag in site.data.tags %}
+            {% if data_tag.slug == post_tag %}
+                {% assign tag = data_tag %}
+            {% endif %}
+        {% endfor %}
+        {% if tag %}
+            {% capture tags_content_temp %}{{ tags_content }}
+            	<span class="tag"><a href="{% if tag.name == 'Portfolio' %}/{% else %}/tag/{% endif %}{{ tag.slug }}/">{{ tag.name }}</a></span>
+            {% endcapture %}
+            {% assign tags_content = tags_content_temp %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% assign tags_content = '' %}
+{% endif %}
+
 	<article id="{{ page.uid }}">
 		<div class="post-header" style="background-image: url({{ page.background }});">
 			<div class="post-header-content">
@@ -8,9 +28,7 @@ layout: default
 				<div class="post-meta">
 					{% if page.tags %}
 						<div class="tag-wrap">
-						{% for tag in page.tags %}
-							<span class="tag">{{ tag }}</span>
-						{% endfor %}
+							{{ tags_content }}
 						</div>
 					{% endif %}
 					<span class="date">{{ page.date | date: "%d / %m / %Y" }}</span>

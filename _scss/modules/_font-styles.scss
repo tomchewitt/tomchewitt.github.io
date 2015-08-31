@@ -23,7 +23,7 @@ body {
     font-family: $body-font;
     font-size: 16px;
     line-height: 20px;
-    color: $black;
+    color: darken($purple, 10%);
     margin: 0 auto;
 }
 
@@ -37,7 +37,16 @@ h6, .h6,
    font-family: $header-font;
    font-weight: 900;
    font-style: italic;
-   color: $black;
+   color: $purple;
+   font-size: 30px;
+   line-height: 40px;
+   letter-spacing: -0.5px;
+}
+
+.post-content {
+	h2 {
+		margin-bottom: 20px;
+	}
 }
 
 .strong {
