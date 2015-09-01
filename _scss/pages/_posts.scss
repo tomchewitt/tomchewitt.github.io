@@ -1,4 +1,8 @@
-
+.gradient {
+	background: $red;
+	background-image: linear-gradient(to top right, $blue 10%, $red 100%);
+	// filter: saturate(1.5);
+}
 
 /**
  * KOOZAC

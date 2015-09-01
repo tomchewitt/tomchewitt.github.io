@@ -1,0 +1,36 @@
+---
+layout: post
+title: KooZac
+tags: [portfolio, design]
+square: '/asset/img/work/koozac/03.jpg'
+background: '/asset/img/work/koozac/hero.jpg'
+uid: 'koozac'
+---
+
+<p class="headline">What started as a request to change a few backgrounds in-game turned into one of my staple projects while working with Square Enix; the mobile game Koozac.</p>
+
+<p>Working on Koozac was a very enjoyable experience as it really allowed me to show my versatility across multiple disciplines. While originally I was only tasked with amending some in-game backgrounds to be less cluttered and overpowering, I ended up working on everything from logos and iTunes icons, in-game UI design, artworking new in-game assets, to web design and development.</p>
+
+<p>The game owner Ben Cusack was so impressed that he asked me to rebrand his company <a href="http://www.viker.co.uk" target="_blank">Viker</a> and create the website.</p>
+
+
+<section class="post-media">
+	<ul>
+		<li class="curved"><img src="/asset/img/work/koozac/02.jpg"></li>
+		<li class="double">
+			<img src="/asset/img/work/koozac/03.jpg">
+			<img src="/asset/img/work/koozac/04.jpg">
+		</li>
+		<li class="curved"><img src="/asset/img/work/koozac/01.jpg"></li>
+	</ul>	
+</section>
+
+<section class="block palette five-colors">
+	<ul>
+		<li class="color-1"></li>
+		<li class="color-2"></li>
+		<li class="color-3"></li>
+		<li class="color-4"></li>
+		<li class="color-5"></li>
+	</ul>
+</section>

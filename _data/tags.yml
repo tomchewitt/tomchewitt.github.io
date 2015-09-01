@@ -4,3 +4,7 @@
   name: Portfolio
 - slug: design
   name: Design
+- slug: develop
+  name: Develop
+- slug: ux
+  name: UX

@@ -1,27 +1,16 @@
+	<div class="post-header post-header-small" style="background-image: url('/asset/img/home-hero-2.jpg');">
+		<div class="post-header-content">
+			<h1 class="post-title">Howdy</h1>
+		</div>
+		<span class="gradient"></span>
+	</div>
 
-        <ul class="post__sample-wrap">
-        {% for post in paginator.posts %}
-            <li>
-	            <header class="post__sample--header">
-	                <h1>{{ post.title }}</h1>
-	                <p class="h5">{{ post.date | date: "%-d/%-m/%Y" }}</p>
-	            </header>
+	<p class="hometext">Check it... it's some new great stuff yo.</p>
 
-                <div class="post__sample--excerpt">
-                    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-                </div>
-            </li>
+	<section class="post-list">
+        <ul>
+        {% for post in site.posts %}
+            {% include list-item.html %}
         {% endfor %}
         </ul>
-
-        {% if paginator.total_pages > 1 %}
-            <div class="pagination">
-	            {% if paginator.previous_page %}
-	            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >PREV</a>
-	            {% endif %}
-
-	            {% if paginator.next_page %}
-	            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="button" >NEXT</a>
-	            {% endif %}
-            </div>
-        {% endif %}
+    </section>
