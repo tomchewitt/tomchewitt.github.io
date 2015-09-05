@@ -23,17 +23,14 @@ body {
     font-family: $body-font;
     font-size: 16px;
     line-height: 20px;
-    color: darken($purple, 10%);
+    color: $newpurple;
     margin: 0 auto;
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6,
-.btn, nav {
+h1,
+h2,
+h3,
+nav {
    font-family: $header-font;
    font-weight: 900;
    font-style: italic;
@@ -43,18 +40,27 @@ h6, .h6,
    letter-spacing: -0.5px;
 }
 
-.post-content {
-	h2 {
-		margin-bottom: 20px;
-	}
+h1 {
+	font-size: 44px;
+	line-height: 48px;
 }
+h2 {
+	font-size: 34px;
+	line-height: 40px;
+}
+h3 {
+	font-size: 30px;
+	line-height: 36px;
+}
+
 
 .strong {
 	font-family: $header-font-bold;
 }
 
 p {
-	font-size: 16px;
-	line-height: 24px;
+	font-size: 1.1em;
+	line-height: 1.8em;
+	letter-spacing: 0.02em;
 	padding-bottom: 20px;
 }

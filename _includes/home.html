@@ -1,16 +1,13 @@
-	<div class="post-header post-header-small" style="background-image: url('/asset/img/home-hero-2.jpg');">
-		<div class="post-header-content">
-			<h1 class="post-title">Howdy</h1>
-		</div>
-		<span class="gradient"></span>
-	</div>
 
-	<p class="hometext">Check it... it's some new great stuff yo.</p>
+	<header class="page-header">
+		<h1>Howdy</h1>
+		<span class="icon"><svg><use xlink:href="#nav-work"></use></svg></span>
+	</header>
 
-	<section class="post-list">
+	<div class="post-list">
         <ul>
         {% for post in site.posts %}
             {% include list-item.html %}
         {% endfor %}
         </ul>
-    </section>
+    </div>

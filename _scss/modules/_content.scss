@@ -1,5 +1,5 @@
 // MAIN WRAPPER
-section.content {
+.content {
 	width: 80%;
 	margin-left: 20%;
 	position: relative;
@@ -58,8 +58,6 @@ p.hometext {
 }
 
 .post-title {
-	font-size: 42px;
-	line-height: 48px;
 	margin-bottom: 15px;
 	color: $white;
 }
@@ -105,16 +103,12 @@ p.hometext {
 }
 
 
-
-
 .post-content {
 	width: 60%;
 	margin: 0 auto;
 	padding-top: 35px;
 	text-align: left;
-	// background: grey; // testing
 }
-
 
 
 .palette {

@@ -2,14 +2,13 @@
 layout: default
 ---
 
-	<div class="post-header post-header-small" style="background-image: url('/asset/img/home-hero-2.jpg');">
-		<div class="post-header-content">
-			<h1 class="post-title">Tag: {{ page.tag }}</h1>
-		</div>
-		<span class="gradient"></span>
-	</div>
 
-	<section class="post-list">
+	<header class="page-header">
+		<h1>{{ page.tag }}</h1>
+		<span class="icon"><svg><use xlink:href="#nav-work"></use></svg></span>
+	</header>
+
+	<div class="post-list">
 	    {% if site.tags[page.tag] %}
 	        {% for post in site.tags[page.tag] %}
 	            {% include list-item.html %}
@@ -17,4 +16,5 @@ layout: default
 	    {% else %}
 	        <p>Sorry, there are no posts for this tag.</p>
 	    {% endif %}
-	</section>
+	</div>
+

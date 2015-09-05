@@ -2,13 +2,11 @@
 layout: default
 ---
 
-	<div class="post-header post-header-small" style="background-image: url('/asset/img/home-hero-2.jpg');">
-		<div class="post-header-content">
-			<h1 class="post-title">{{ page.title }}</h1>
-		</div>
-		<span class="gradient"></span>
-	</div>
+	<header class="page-header">
+		<h1>{{ page.title }}</h1>
+		<span class="icon"><svg><use xlink:href="#nav-work"></use></svg></span>
+	</header>
 
-	<section class="post-list">
+	<div class="post-list">
 		{{ content }}
-	</section>
+	</div>

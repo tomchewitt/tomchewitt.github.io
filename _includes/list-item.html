@@ -1,17 +1,19 @@
 			<li id="{{post.uid}}" class="post-sample">
             	<a href="{{post.url}}">
-            		<div class="post-sample-inner">
-			            <header class="post-sample-header">
+            		<article>
+            			<header class="post-sample-header">
 			                <h2>{{ post.title }}</h2>
-			                <p>{{ post.date | date: "%-d / %-m / %Y" }}</p>
+			                <p class="date">{{ post.date | date: "%-d / %-m / %Y" }}</p>
 			            </header>
 
-		                <div class="post-sample-excerpt">
-		                    <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-		                </div>
-	                </div>
+			            <span class="post-sample-line"></span>
 
-					<span class="post-sample-img" style="background-image: url({{post.square}});"></span>
-	                <span class="gradient"></span>
+		                <section class="post-sample-excerpt">
+		                    <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
+		                </section>
+
+						<span class="post-sample-img" style="background-image: url({{post.square}});"></span>
+		                <span class="gradient"></span>
+            		</article>
 	            </a>
             </li>
