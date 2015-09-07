@@ -66,4 +66,37 @@ br {
 		padding: 0 30px;
 		line-height: 60px;
 	}
+
+	a {
+		text-decoration: none;
+		color: $red;
+
+		&:hover {
+			border-bottom: dotted 1px $red;
+		}
+	}
+}
+
+
+/**
+ * SOZ
+ */
+.soz {
+	text-align: center;
+	margin: 40px 0;
+}
+
+
+/**
+ * MOBILES
+ */
+@media screen and (max-width: 790px) {
+	.footer {
+		width: 100%;
+		margin-left: 0;
+		p {
+			padding: 0 5%;
+			font-size: 11px;
+		}
+	}
 }

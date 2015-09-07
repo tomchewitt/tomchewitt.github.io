@@ -3,6 +3,7 @@
 	background: $black;
 	margin-left: -33.3333333333333%;
 	text-align: center;
+	margin-top: 30px;
 
 	ul {
 		width: 100%;
@@ -73,3 +74,12 @@
 }
 
 
+/**
+ * MOBILES
+ */
+@media screen and (max-width: 790px) {
+	.post-media {
+		width: 125%;
+		margin-left: -12.5%;
+	}
+}

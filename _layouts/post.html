@@ -22,7 +22,7 @@ layout: default
 {% endif %}
 
 	<article id="{{ page.uid }}">
-		<div class="post-header" style="background-image: url({{ page.background }});">
+		<div class="post-header" style="background-image: url({% if page.background %}{{page.background}}{% else %}'/asset/img/hero.jpg'{% endif %});">
 			<div class="post-header-content">
 				<h1 class="post-title">{{ page.title }}</h1>
 				<div class="post-meta">

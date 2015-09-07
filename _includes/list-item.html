@@ -12,8 +12,16 @@
 		                    <p class="excerpt">{{ post.excerpt | strip_html | truncatewords: 22 }}</p>
 		                </section>
 
-						<span class="post-sample-img" style="background-image: url({{post.square}});"></span>
+						<span class="post-sample-img" style="background-image: url({% if post.square %}{{post.square}}{% else %}'/asset/img/hero.jpg'{% endif %});"></span>
 		                <span class="gradient"></span>
+
+		                {% if post.tags %}
+							<section class="post-sample-tags">
+								{% for tag in post.tags %}
+									<span class="post-sample-tag">{{tag}}</span>
+								{% endfor %}
+							</section>
+						{% endif %}
             		</article>
 	            </a>
             </li>
