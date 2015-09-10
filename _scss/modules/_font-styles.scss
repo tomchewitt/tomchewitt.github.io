@@ -64,3 +64,26 @@ p {
 	letter-spacing: 0.02em;
 	padding-bottom: 20px;
 }
+
+.post-content {
+	a {
+		color: $red;
+		text-decoration: none;
+		border-bottom: dotted 1px $red;
+		transition: all 0.3s ease;
+
+		&:hover {
+			color: darken($red, 10%);
+		}
+	}
+}
+
+
+.content {
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin-bottom: 30px;
+	}
+}

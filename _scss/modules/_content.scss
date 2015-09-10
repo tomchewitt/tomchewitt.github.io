@@ -106,7 +106,7 @@ p.hometext {
 .post-content {
 	width: 60%;
 	margin: 0 auto;
-	padding-top: 35px;
+	padding: 45px 0;
 	text-align: left;
 }
 
@@ -115,6 +115,7 @@ p.hometext {
 	width: 166.66666666666666%;
 	background: $black;
 	margin-left: -33.3333333333333%;
+	margin-bottom: -45px;
 	height: 10px;
 	display: block;
 	position: relative;
