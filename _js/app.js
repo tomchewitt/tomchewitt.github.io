@@ -1,10 +1,11 @@
 /**
  * INIT
  */
-var mod = require('./modules/module.js');
-var mod2 = require('./modules/moduletwo.js');
+var headings = require('./modules/headings.js');
 
 (function() {
+
+	headings.init();
 
 	var hamburger = document.querySelector('.hamburger'),
 		sidebar = document.querySelector('.sidebar');
