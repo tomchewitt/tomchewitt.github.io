@@ -79,6 +79,7 @@ $triangleborder: 40px;
  */
 .main-nav {
 	margin-top: 40px;
+	padding-bottom: 60px;
 
 	li {
 		width: 100%;
@@ -136,7 +137,8 @@ $triangleborder: 40px;
 		text-decoration: none;
 		font-size: 22px;
 		line-height: 32px;
-		font-weight: normal;
+		font-weight: 900;
+		font-style: italic;
 		color: $darkpurple;
 		position: relative;
 		z-index: 2;
@@ -166,6 +168,7 @@ nav.social-nav {
 	position: fixed;
 	bottom: 0;
 	left: 0;
+	z-index: 100;
 	background: darken($purple, 4%);
 	text-align: center;
 

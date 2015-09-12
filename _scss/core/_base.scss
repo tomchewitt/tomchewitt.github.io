@@ -112,6 +112,9 @@ p, figure {
 input::-moz-focus-inner {
 	border: 0;
 }
-object, embed, a, *:focus {
+object,
+embed,
+a,
+* :focus {
 	outline: 0;
 }

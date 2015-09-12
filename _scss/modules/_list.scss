@@ -5,8 +5,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: -1;
-	background: $blue;
+	z-index: 5;
+	background: $white;
 	opacity: 0;
 }
 
@@ -15,6 +15,7 @@
 	text-align: center;
 	padding: 40px 0;
 	position: fixed;
+	z-index: 1;
 
 	h1 {
 		text-transform: capitalize;
@@ -42,7 +43,9 @@
 .post-list {
 	width: 100%;
 	overflow: auto;
-	padding-top: 160px;
+	padding-top: 130px;
+	position: relative;
+	z-index: 100;
 
 	.gradient {
 		width: 100%;
@@ -236,10 +239,14 @@
 	}
 }
 
-@media screen and (max-width: 660px) {
+
+@media screen and (max-width: 790px) {
 	.page-header {
 		width: 100%;
 	}
+}
+
+@media screen and (max-width: 660px) {
 	.post-sample {
 		width: 100%;
 	}
