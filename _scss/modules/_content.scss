@@ -44,6 +44,14 @@ p.hometext {
 		transform: translateX(51%) skew(-210deg);
 	}
 
+
+}
+
+.post-header-wrap {
+	width: 100%;
+	height: 440px;
+	position: relative;
+
 	.gradient {
 		width: 100%;
 		height: 100%;
@@ -57,6 +65,7 @@ p.hometext {
 	}
 }
 
+
 h1.post-title {
 	margin-bottom: 15px;
 	color: $white;
@@ -64,12 +73,11 @@ h1.post-title {
 
 .post-header-content {
 	position: fixed;
-	top: 220px;
-	left: 60%;
+	left: 30%;
 	z-index: 3;
-	transform: translate(-50%, -50%);
 	text-align: center;
 	color: $white;
+	width: 60%;
 
 	.tag, .date {
 		display: inline-block;
@@ -77,6 +85,7 @@ h1.post-title {
 
 	.tag-wrap {
 		width: 100%;
+		padding-top: 4px;
 	}
 
 	.tag {
@@ -90,15 +99,39 @@ h1.post-title {
 			text-transform: uppercase;
 			font-size: 12px;
 			letter-spacing: 2px;
+			position: relative;
+			transition: all 0.2s ease;
+
+			&::before {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: -1;
+				content: "";
+				background: $white;
+				transform: scaleY(0);
+				transform-origin: 0 100%;
+				-webkit-backface-visibility: hidden;
+				transition: all 0.2s ease-in-out;
+			}
 
 			&:hover {
-				background: $red;
+				color: $purple;
+
+				&::before {
+					transform: scaleX(1);
+				}
 			}
 		}
 	}
 
 	.date {
-		margin-top: 18px;
+		margin-top: 15px;
+		font-size: 14px;
+		letter-spacing: 2px;
 	}
 }
 

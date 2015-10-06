@@ -22,16 +22,18 @@ layout: default
 {% endif %}
 
 	<article id="{{ page.uid }}">
-		<div class="post-header" style="background-image: url({% if page.background %}{{page.background}}{% else %}'/asset/img/hero.jpg'{% endif %});">
-			<div class="post-header-content">
-				<h1 class="post-title">{{ page.title }}</h1>
-				<div class="post-meta">
-					{% if page.tags %}
-						<div class="tag-wrap">
-							{{ tags_content }}
-						</div>
-					{% endif %}
-					<span class="date">{{ page.date | date: "%d / %m / %Y" }}</span>
+		<div class="post-header-wrap">
+			<div class="post-header" style="background-image: url({% if page.background %}{{page.background}}{% else %}'/asset/img/hero.jpg'{% endif %});">
+				<div class="post-header-content">
+					<h1 class="post-title">{{ page.title }}{% if page.subtitle %} <span class="sub">{{ page.subtitle }}</span>{% endif %}</h1>
+					<div class="post-meta">
+						{% if page.tags %}
+							<div class="tag-wrap">
+								{{ tags_content }}
+							</div>
+						{% endif %}
+						<span class="date">{{ page.date | date: "%d / %m / %Y" }}</span>
+					</div>
 				</div>
 			</div>
 			<span class="gradient"></span>

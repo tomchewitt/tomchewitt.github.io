@@ -3,9 +3,6 @@
  *
  */
 
-// AVAILABLE FONTS
-
-
 
 // FONT VARS
 $header-font: 'Lato', sans-serif;
@@ -41,8 +38,21 @@ nav {
 }
 
 h1 {
-	font-size: 44px;
-	line-height: 48px;
+	font-size: 46px;
+	line-height: 40px;
+
+	.sub {
+		font-family: $body-font;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 20px;
+		padding-bottom: 20px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		display: inline-block;
+		border-bottom: dotted 1px rgba($white, 0.7);
+	}
 }
 h2 {
 	font-size: 34px;
@@ -74,6 +84,7 @@ p {
 
 		&:hover {
 			color: darken($red, 10%);
+			border-bottom: solid 1px darken($red, 10%);
 		}
 	}
 }
@@ -85,6 +96,9 @@ p {
 	h2,
 	h3,
 	h4 {
+		border-bottom: dotted 1px lighten($purple, 45%);
+		padding-bottom: 25px;
+		margin-top: 30px;
 		margin-bottom: 30px;
 	}
 }
