@@ -25,7 +25,7 @@ layout: default
 		<div class="post-header-wrap">
 			<div class="post-header" style="background-image: url({% if page.background %}{{page.background}}{% else %}'/asset/img/hero.jpg'{% endif %});">
 				<div class="post-header-content">
-					<h1 class="post-title">{{ page.title }}{% if page.subtitle %} <span class="sub">{{ page.subtitle }}</span>{% endif %}</h1>
+					<h1 class="post-title"><span class="main">{{ page.title }}</span>{% if page.subtitle %} <span class="sub">{{ page.subtitle }}</span>{% endif %}</h1>
 					<div class="post-meta">
 						{% if page.tags %}
 							<div class="tag-wrap">
@@ -41,6 +41,13 @@ layout: default
 
 		<section class="post-content">
 			{{ content }}
+		</section>
+
+		<section class="post-share">
+			<a href="https://twitter.com/intent/tweet?text=Tom%20Does%20Dgital&via=tomchewitt" target="_blank">
+				<p class="share-copy">Please share this post and join the discussion on Twitter.</p>
+				<span class="icon"><svg><use xlink:href="#twitter"></use></svg></span>
+			</a>
 		</section>
 	</article>
 

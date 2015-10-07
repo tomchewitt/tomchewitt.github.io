@@ -71,7 +71,17 @@
 		if (!a.test(linksArr[i].href)) {
 			linksArr[i].onclick = function(e) {
 				e.preventDefault();
-				window.open(this.href, '_blank');
+
+				var url = this.href;
+
+				// twitter
+				if ((this.href.indexOf('https://twitter.com/intent') > -1)) {
+					var urltext = document.title.split(' | Tom Does Digital')
+					urltext = encodeURIComponent(urltext);
+					url = 'https://twitter.com/intent/tweet?text=' + urltext + '&url=' + window.location.href + '&via=tomchewitt';
+				}
+
+				window.open(url, '_blank');
 			};
 		}
 	};

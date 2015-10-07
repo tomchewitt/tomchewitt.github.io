@@ -41,6 +41,10 @@ h1 {
 	font-size: 46px;
 	line-height: 40px;
 
+	.main {
+		display: block;
+	}
+
 	.sub {
 		font-family: $body-font;
 		font-style: normal;

@@ -2,6 +2,10 @@
 	color: $blue;
 	background: darken($purple, 4%);
 
+	.post-content {
+		background: darken($purple, 4%);
+	}
+
 	p {
 		text-align: center;
 	}
@@ -26,6 +30,8 @@
 	h2,
 	h3 {
 		color: $white;
+		border: none;
+		margin: 0;
 	}
 }
 

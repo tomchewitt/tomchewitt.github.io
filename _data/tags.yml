@@ -10,3 +10,5 @@
   name: UX
 - slug: news
   name: News
+- slug: opinion
+  name: Opinion

@@ -192,6 +192,73 @@ h1.post-title {
 }
 
 
+.post-share {
+	width: 100%;
+	height: 120px;
+	background: #6BAEE7;
+	background: linear-gradient(45deg, darken(#6BAEE7, 15%) 0%, #6BAEE7 100%);
+
+	a {
+		position: relative;
+		overflow: hidden;
+		box-sizing: border-box;
+		padding: 0 190px 0 30px;
+		width: 100%;
+		height: 100%;
+		text-align: left;
+		display: flex;
+		align-items: center;
+  		justify-content: left;
+  		text-decoration: none;
+  		transition: all 0.4s ease;
+
+  		&:hover {
+  			background: darken(#6BAEE7, 30%);
+
+  			.icon {
+  				svg {
+  					fill: rgba(#6BAEE7, 1);
+  					stroke: #6BAEE7;
+  				}
+  			}
+  			.share-copy {
+  				color: #6BAEE7;
+  			}
+  		}
+	}
+
+	.icon {
+		width: 140px;
+		height: 140px;
+		display: block;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		transform: rotate(-20deg);
+
+		svg {
+			width: 100%;
+			height: 100%;
+			fill: rgba(#6BAEE7, 0);
+			stroke: $white;
+			stroke-width: 1;
+			transition: all 0.4s ease;
+		}
+	}
+
+	.share-copy {
+		float: left;
+		display: block;
+		line-height: 24px;
+		font-size: 14px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		padding-bottom: 0;
+		color: $white;
+		transition: all 0.4s ease;
+	}
+}
+
 
 @media screen and (max-width: 790px) {
 	.content {
@@ -208,5 +275,19 @@ h1.post-title {
 	.palette {
 		width: 125%;
 		margin-left: -12.5%;
+	}
+}
+
+@media screen and (max-width: 520px) {
+	.post-share {
+		a {
+			padding-right: 90px;
+		}
+		.icon {
+			width: 60px;
+			height: 60px;
+			top: 50%;
+			transform: rotate(0) translateY(-50%);
+		}
 	}
 }
