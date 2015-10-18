@@ -2,21 +2,31 @@
  * INIT
  */
 
+require('./modules/native.history.js');
+
 (function() {
 
-	// HEADERS
+	// VARS
 	var postHeader = document.querySelector('.post-header-content'),
 		bg = document.querySelector('.page-header'),
 		gradient = document.querySelector('.post-header-wrap .gradient'),
 		headerHeight = 160,
-		titleHeight = 400;
+		titleHeight = 400,
+		hamburger = document.querySelector('.hamburger'),
+		sidebar = document.querySelector('.sidebar'),
+		linksArr = document.querySelectorAll('a'),
+		currentState = 1,
+		manualStateChange = true;
 
-	// Initial setup
+
+	// INIT
 	if (postHeader != null) {
 		var postHeaderHeight = postHeader.clientHeight;
 		postHeader.style.top = (400 - postHeader.clientHeight) / 2 + 'px';
 	};
 
+
+	// SCROLL
 	window.onscroll = function() {
 		var winOffset = window.pageYOffset,
 			gradientPercentage = ((winOffset / titleHeight) / 2.2) + 0.8,
@@ -55,17 +65,12 @@
 
 
 	// MOBILE NAVIGATION
-	var hamburger = document.querySelector('.hamburger'),
-		sidebar = document.querySelector('.sidebar');
-
 	hamburger.addEventListener('click', function() {
 		sidebar.classList.toggle('JS_on');
 	});
 
 
 	// EXTERNAL LINKS
-	var linksArr = document.querySelectorAll('a');
-
 	for (var i = 0; i < linksArr.length; i++) {
 		var a = new RegExp('/' + window.location.host + '/');
 		if (!a.test(linksArr[i].href)) {
@@ -76,15 +81,64 @@
 
 				// twitter
 				if ((this.href.indexOf('https://twitter.com/intent') > -1)) {
-					var urltext = document.title.split(' | Tom Does Digital')
+					var urltext = document.title.split(' | Tom Does Digital');
 					urltext = encodeURIComponent(urltext);
 					url = 'https://twitter.com/intent/tweet?text=' + urltext + '&url=' + window.location.href + '&via=tomchewitt';
 				}
 
 				window.open(url, '_blank');
 			};
+		} else {
+			linksArr[i].onclick = function(e) {
+				e.preventDefault();
+
+				var url = this.href;
+
+				// DO AJAXY STUFF
+				var request = new XMLHttpRequest();
+				request.open('GET', url, true);
+				request.onload = function() {
+					if (request.status >= 200 && request.status < 400) {
+						// Success!
+						var arr = request.responseText.split('<div class="content">'),
+							title = arr[0].split('<title>'),
+							title = title[1].split('</title>'),
+							content = arr[1].split('</div><section class="footer">');
+
+						document.querySelector('.content').innerHTML = content[0];
+
+						manualStateChange = false;
+						currentState ++;
+						History.pushState({ state: currentState }, title[0], url);
+
+
+
+					} else {
+						window.open(this.href);
+					}
+				};
+
+				request.onerror = function() {
+					window.open(this.href);
+				};
+
+				request.send();
+			};
 		}
 	};
+
+
+	// Bind to StateChange Event
+    History.Adapter.bind(window, 'statechange', function(){
+        var State = History.getState();
+        // console.log(State);
+        if(manualStateChange == true){
+			// BACK BUTTON WAS PRESSED
+			currentState --;
+			History.pushState({ state: currentState }, '', '');
+	    }
+	    manualStateChange = true;
+    });
 
 
 })();

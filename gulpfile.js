@@ -14,6 +14,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
 	streamify = require('gulp-streamify'),
+	babelify = require('babelify'),
 	watch = require('gulp-watch');
 
 
@@ -55,7 +56,8 @@ var paths = {
 	},
 	_bundle: function(b) {
 		var start = Date.now();
-		b.bundle()
+		b.transform(babelify)
+		 	.bundle()
 			.on('error', function(err) {
 				gutil.log(gutil.colors.red('ERROR: ' + err.message));
 				this.emit('end');
