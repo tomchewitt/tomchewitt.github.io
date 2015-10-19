@@ -7,23 +7,30 @@ require('./modules/native.history.js');
 (function() {
 
 	// VARS
-	var postHeader = document.querySelector('.post-header-content'),
-		bg = document.querySelector('.page-header'),
-		gradient = document.querySelector('.post-header-wrap .gradient'),
+	var postHeader,
+		bg,
+		gradient,
 		headerHeight = 160,
 		titleHeight = 400,
 		hamburger = document.querySelector('.hamburger'),
 		sidebar = document.querySelector('.sidebar'),
-		linksArr = document.querySelectorAll('a'),
+		linksArr,
 		currentState = 1,
 		manualStateChange = true;
 
 
 	// INIT
-	if (postHeader != null) {
-		var postHeaderHeight = postHeader.clientHeight;
-		postHeader.style.top = (400 - postHeader.clientHeight) / 2 + 'px';
-	};
+	function headerInit() {
+		postHeader = document.querySelector('.post-header-content');
+		bg = document.querySelector('.page-header');
+		gradient = document.querySelector('.post-header-wrap .gradient');
+
+		if (postHeader != null) {
+			var postHeaderHeight = postHeader.clientHeight;
+			postHeader.style.top = (400 - postHeader.clientHeight) / 2 + 'px';
+		};
+	}
+	headerInit();
 
 
 	// SCROLL
@@ -71,74 +78,100 @@ require('./modules/native.history.js');
 
 
 	// EXTERNAL LINKS
-	for (var i = 0; i < linksArr.length; i++) {
-		var a = new RegExp('/' + window.location.host + '/');
-		if (!a.test(linksArr[i].href)) {
-			linksArr[i].onclick = function(e) {
-				e.preventDefault();
+	function linksInit() {
+		linksArr = document.querySelectorAll('a');
 
-				var url = this.href;
+		for (var i = 0; i < linksArr.length; i++) {
+			var a = new RegExp('/' + window.location.host + '/');
+			if (!a.test(linksArr[i].href)) {
+				linksArr[i].onclick = function(e) {
+					e.preventDefault();
 
-				// twitter
-				if ((this.href.indexOf('https://twitter.com/intent') > -1)) {
-					var urltext = document.title.split(' | Tom Does Digital');
-					urltext = encodeURIComponent(urltext);
-					url = 'https://twitter.com/intent/tweet?text=' + urltext + '&url=' + window.location.href + '&via=tomchewitt';
-				}
+					var url = this.href;
 
-				window.open(url, '_blank');
-			};
-		} else {
-			linksArr[i].onclick = function(e) {
-				e.preventDefault();
-
-				var url = this.href;
-
-				// DO AJAXY STUFF
-				var request = new XMLHttpRequest();
-				request.open('GET', url, true);
-				request.onload = function() {
-					if (request.status >= 200 && request.status < 400) {
-						// Success!
-						var arr = request.responseText.split('<div class="content">'),
-							title = arr[0].split('<title>'),
-							title = title[1].split('</title>'),
-							content = arr[1].split('</div><section class="footer">');
-
-						document.querySelector('.content').innerHTML = content[0];
-
-						manualStateChange = false;
-						currentState ++;
-						History.pushState({ state: currentState }, title[0], url);
-
-
-
-					} else {
-						window.open(this.href);
+					// twitter
+					if ((this.href.indexOf('https://twitter.com/intent') > -1)) {
+						var urltext = document.title.split(' | Tom Does Digital');
+						urltext = encodeURIComponent(urltext);
+						url = 'https://twitter.com/intent/tweet?text=' + urltext + '&url=' + window.location.href + '&via=tomchewitt';
 					}
-				};
 
-				request.onerror = function() {
-					window.open(this.href);
+					window.open(url, '_blank');
 				};
+			} else {
+				linksArr[i].onclick = function(e) {
+					e.preventDefault();
 
-				request.send();
-			};
-		}
+					var url = this.href;
+
+					ajaxPage(url);
+				};
+			}
+		};
 	};
+	linksInit();
 
 
 	// Bind to StateChange Event
     History.Adapter.bind(window, 'statechange', function(){
         var State = History.getState();
-        // console.log(State);
-        if(manualStateChange == true){
+
+        if (manualStateChange == true){
 			// BACK BUTTON WAS PRESSED
-			currentState --;
-			History.pushState({ state: currentState }, '', '');
+			ajaxPage(State.url);
 	    }
 	    manualStateChange = true;
     });
+
+
+    function contentAnimOutComplete(content) {
+
+    	document.querySelector('.content').innerHTML = content;
+    	headerInit();
+    	linksInit();
+    	TweenMax.to('.content', 0.4, {
+			opacity: 1,
+			ease: Quad.easeOut,
+		});
+    }
+
+
+    function ajaxPage(url) {
+
+    	// DO AJAXY STUFF
+		var request = new XMLHttpRequest();
+		request.open('GET', url, true);
+		request.onload = function() {
+			if (request.status >= 200 && request.status < 400) {
+				// Success!
+				var arr = request.responseText.split('<div class="content">'),
+					title = arr[0].split('<title>'),
+					title = title[1].split('</title>'),
+					nearlycontent = arr[1].split('<section class="footer">');
+					// content = nearlycontent[0].split()
+
+				TweenMax.to('.content', 0.4, {
+					opacity: 0,
+					ease: Power3.easeOut,
+					onComplete: contentAnimOutComplete,
+					onCompleteParams: [nearlycontent[0]]
+				});
+
+				manualStateChange = false;
+				currentState ++;
+				History.pushState({ state: currentState }, title[0], url);
+
+			} else {
+				window.open(this.href);
+			}
+		};
+
+		request.onerror = function() {
+			window.open(this.href);
+		};
+
+		request.send();
+    }
 
 
 })();
