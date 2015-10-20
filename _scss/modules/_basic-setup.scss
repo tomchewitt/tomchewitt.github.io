@@ -89,6 +89,34 @@ br {
 
 
 /**
+ * AJAX
+ */
+.loader {
+	z-index: -1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+.triangle {
+	fill: $white;
+}
+.overlay {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background: $blue;
+	opacity: 0;
+}
+
+
+/**
  * MOBILES
  */
 @media screen and (max-width: 790px) {

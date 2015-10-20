@@ -2,6 +2,7 @@
  * INIT
  */
 
+require('./modules/MorphSVGPlugin.min.js');
 require('./modules/native.history.js');
 
 (function() {
@@ -124,15 +125,26 @@ require('./modules/native.history.js');
     });
 
 
-    function contentAnimOutComplete(content) {
+    function changeContent(content) {
 
     	document.querySelector('.content').innerHTML = content;
     	headerInit();
     	linksInit();
-    	TweenMax.to('.content', 0.4, {
-			opacity: 1,
-			ease: Quad.easeOut,
+  		var tri2 = makeTriangle(6000);
+		TweenMax.to('.triangle', 1, {
+			morphSVG: tri2,
+			delay: 0.3,
+			onComplete: contentChanged
 		});
+		TweenMax.to('.overlay', 0.8, {
+			opacity: 0,
+			delay: 0.3
+		});
+    }
+
+    function contentChanged() {
+    	TweenMax.set('.loader', {zIndex: -1});
+    	TweenMax.set('.overlay', {zIndex: -1});
     }
 
 
@@ -150,12 +162,32 @@ require('./modules/native.history.js');
 					nearlycontent = arr[1].split('<section class="footer">');
 					// content = nearlycontent[0].split()
 
-				TweenMax.to('.content', 0.4, {
-					opacity: 0,
-					ease: Power3.easeOut,
-					onComplete: contentAnimOutComplete,
+				// TweenMax.to('.content', 0.4, {
+				// 	opacity: 0,
+				// 	ease: Power3.easeOut,
+				// 	onComplete: contentAnimOutComplete,
+				// 	onCompleteParams: [nearlycontent[0]]
+				// });
+
+				// ANIMATE
+
+				var tri1 = makeTriangle(20),
+					tri2 = makeTriangle(6000);
+
+				document.querySelector('.triangle').setAttribute('d', tri2);
+				TweenMax.set('.loader', {zIndex: 99});
+				TweenMax.set('.overlay', {zIndex: 98});
+				TweenMax.to('.triangle', 0.7, {
+					morphSVG: tri1,
+					zIndex: 99,
+					onComplete: changeContent,
 					onCompleteParams: [nearlycontent[0]]
 				});
+				TweenMax.to('.overlay', 0.9, {
+					opacity: 0.9,
+					zIndex: 98
+				});
+
 
 				manualStateChange = false;
 				currentState ++;
@@ -172,6 +204,20 @@ require('./modules/native.history.js');
 
 		request.send();
     }
+
+    // LOADER
+    function makeTriangle(a) {
+		var winx = window.innerWidth,
+			winy = window.innerHeight,
+			h = (Math.sqrt(3) / 2) * a,
+			b = { x: (winx * 0.6) - (a / 2) , y: (winy * 0.5) + (h / 2) },
+			c = { x: (winx * 0.6) + (a / 2) , y: (winy * 0.5) + (h / 2) },
+			d = { x: winx * 0.6 , y: (winy * 0.5) - (h / 2) },
+			strRect = 'M0 0 L' + winx + ' 0 L' + winx + ' ' + winy + ' L0 ' + winy + ' z ',
+			strTri = 'M' + d.x + ' ' + d.y + ' L' + b.x + ' ' + b.y + ' L' + c.x + ' ' + c.y + ' z';
+
+		return strRect + strTri;
+	}
 
 
 })();
