@@ -11,6 +11,7 @@ body {
     font-size: 16px;
     line-height: 20px;
     margin: 0 auto;
+    background: darken($purple, 4%);
 }
 
 h1, .h1,
@@ -114,7 +115,42 @@ br {
 	background: $blue;
 	opacity: 0;
 }
+.spinner {
+	position: fixed;
+	top: 50%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	z-index: -1;
+}
 
+.spinner-triangle {
+	$height: 70px;
+
+	width: $height;
+	height: $height * 0.866;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+
+	svg {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform-origin: 50% 57.6894%;
+	}
+	svg:nth-child(1) {
+		fill: $red;
+		animation: spinner 1.4s infinite cubic-bezier(.52,.28,.68,.89);
+	}
+
+	svg:nth-child(2) {
+		fill: $blue;
+		animation: spinner 1.4s infinite linear;
+	}
+}
 
 /**
  * MOBILES

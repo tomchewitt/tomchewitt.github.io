@@ -128,6 +128,7 @@ require('./modules/native.history.js');
     function changeContent(content) {
 
     	document.querySelector('.content').innerHTML = content;
+    	window.scrollTo(0, 0);
     	headerInit();
     	linksInit();
   		var tri2 = makeTriangle(6000);
@@ -140,9 +141,13 @@ require('./modules/native.history.js');
 			opacity: 0,
 			delay: 0.3
 		});
+		TweenMax.to('.spinner', 0.3, {
+			opacity: 0
+		});
     }
 
     function contentChanged() {
+    	TweenMax.set('.spinner', {zIndex: -1});
     	TweenMax.set('.loader', {zIndex: -1});
     	TweenMax.set('.overlay', {zIndex: -1});
     }
@@ -162,21 +167,20 @@ require('./modules/native.history.js');
 					nearlycontent = arr[1].split('<section class="footer">');
 					// content = nearlycontent[0].split()
 
-				// TweenMax.to('.content', 0.4, {
-				// 	opacity: 0,
-				// 	ease: Power3.easeOut,
-				// 	onComplete: contentAnimOutComplete,
-				// 	onCompleteParams: [nearlycontent[0]]
-				// });
-
 				// ANIMATE
-
-				var tri1 = makeTriangle(20),
+				var tri1 = makeTriangle(1),
 					tri2 = makeTriangle(6000);
 
 				document.querySelector('.triangle').setAttribute('d', tri2);
+
+				TweenMax.set('.spinner', {zIndex: 100});
 				TweenMax.set('.loader', {zIndex: 99});
 				TweenMax.set('.overlay', {zIndex: 98});
+				TweenMax.to('.spinner', 0.3, {
+					opacity: 1,
+					zIndex: 100,
+					delay: 0.7,
+				});
 				TweenMax.to('.triangle', 0.7, {
 					morphSVG: tri1,
 					zIndex: 99,
