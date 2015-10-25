@@ -89,6 +89,61 @@ br {
 }
 
 
+
+/**
+ * VIDEO
+ */
+.video-wrap {
+ 	position: relative;
+ }
+.video {
+	max-width: 80%;
+	position: relative;
+	z-index: 1;
+}
+.video-play {
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 2;
+	transform: translate(-50%, -50%);
+	background: $purple;
+	border: none;
+	text-indent: -9999px;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	$triangleborder: 10px;
+
+	&::after {
+		content: "";
+	    width: 0;
+	    height: 0;
+	    position: absolute;
+	    top: 21px;
+	    left: 25px;
+	    transition: all 0.3s ease;
+		border-left: #{($triangleborder*2) * 0.866} solid $white;
+		border-bottom: $triangleborder solid transparent;
+		border-top: $triangleborder solid transparent;
+	}
+
+	&:hover {
+		background: darken($purple, 10%);
+		&::after {
+			border-left: #{($triangleborder*2) * 0.866} solid $blue;
+		}
+	}
+
+	&.JS_off {
+		opacity: 0;
+	}
+}
+
+
+
 /**
  * AJAX
  */

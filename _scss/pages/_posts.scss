@@ -534,6 +534,288 @@
 }
 
 
+/**
+ * WILLIAMS
+ */
+
+#williams {
+	$color1: #79BFC1;
+	$color2: #1C4454;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #B7556A;
+		}
+		.color-4 {
+			background: #4AA9E2;
+		}
+		.color-5 {
+			background: #588680;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color1;
+		}
+		li:nth-child(2) {
+			background: $color2;
+		}
+		li:nth-child(3) {
+			background: #B7556A;
+		}
+		li:nth-child(4) {
+			background: #4AA9E2;
+		}
+		li:nth-child(5) {
+			background: #588680;
+		}
+		li:nth-child(6) {
+			background: #F1F9FA;
+		}
+		li:nth-child(7) {
+			background: #687781;
+		}
+
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
+/**
+ * DELMONTE
+ */
+
+#delmonte {
+	$color1: #54BAE5;
+	$color2: #F1C054;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #142C34;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color1;
+		}
+		li:nth-child(2) {
+			background: $color2;
+		}
+		li:nth-child(3) {
+			background: $color2;
+		}
+		li:nth-child(4) {
+			background: #142C34;
+		}
+		li:nth-child(5) {
+			background: #CBD070;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
+
+/**
+ * BARBOUR
+ */
+
+#barbour {
+	$color1: #0C4717;
+	$color2: lighten($color1, 15%);
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: $color2;
+		}
+		.color-3 {
+			background: #838383;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color1;
+		}
+		li:nth-child(2) {
+			background: #838383;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
+
+
+/**
+ * REPORTING
+ */
+
+#reporting {
+	$color1: #9F5040;
+	$color2: #DF715A;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color1;
+		}
+		.color-2 {
+			background: #282828;
+		}
+		.color-3 {
+			background: $color2;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color1;
+		}
+		li:nth-child(2) {
+			background: $color2;
+		}
+		li:nth-child(3) {
+			background: #282828;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
+
+/**
+ * WESTFIELD
+ */
+
+#westfield {
+	$color1: #DB8C7E;
+	$color2: #7194C2;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: #F4E9C7;
+		}
+		.color-2 {
+			background: #7194C2;
+		}
+		.color-3 {
+			background: $color1;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color2;
+		}
+		li:nth-child(2) {
+			background: $black;
+		}
+		li:nth-child(3) {
+			background: #F4E9C7;
+		}
+		li:nth-child(4) {
+			background: $color1;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
+
+/**
+ * CODEPEN
+ */
+
+#codepen {
+	$color1: #324652;
+	$color2: #192228;
+	p.headline {
+		@include textgradient($color1, $color2);
+	}
+	.gradient {
+		background: $color1;
+		background-image: linear-gradient(to top right, $color1 0%, $color2 70%);
+		// filter: saturate(3);
+	}
+	.palette {
+		.color-1 {
+			background: $color2;
+		}
+		.color-2 {
+			background: #50595F;
+		}
+		.color-3 {
+			background: $color1;
+		}
+	}
+	.post-media {
+		li:nth-child(1) {
+			background: $color1;
+		}
+	}
+	.hero {
+		background: $color1;
+	}
+}
+
+
 /*
 #drips {
 	$color1: #127DC1;

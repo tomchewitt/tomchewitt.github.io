@@ -19,8 +19,33 @@ require('./modules/native.history.js');
 		currentState = 1,
 		manualStateChange = true;
 
+	linksInit();
+	headerInit();
+	videoInit();
 
-	// INIT
+
+	// VIDEOS
+	function videoInit() {
+		var video = document.querySelector('.video'),
+			playButton = document.querySelector('.video-play');
+
+		if (video != null) {
+			video.controls = false;
+			video.loop = false;
+
+			playButton.onclick = function() {
+				playButton.classList.add('JS_off');
+				video.play();
+			};
+
+			video.onended = function(e) {
+				playButton.classList.remove('JS_off');
+			};
+		}
+	}
+
+
+	// HEADERS
 	function headerInit() {
 		postHeader = document.querySelector('.post-header-content');
 		bg = document.querySelector('.page-header');
@@ -31,7 +56,6 @@ require('./modules/native.history.js');
 			postHeader.style.top = (400 - postHeader.clientHeight) / 2 + 'px';
 		};
 	}
-	headerInit();
 
 
 	// SCROLL
@@ -110,7 +134,6 @@ require('./modules/native.history.js');
 			}
 		};
 	};
-	linksInit();
 
 
 	// Bind to StateChange Event
@@ -126,11 +149,11 @@ require('./modules/native.history.js');
 
 
     function changeContent(content) {
-
     	document.querySelector('.content').innerHTML = content;
     	window.scrollTo(0, 0);
     	headerInit();
     	linksInit();
+    	videoInit();
   		var tri2 = makeTriangle(6000);
 		TweenMax.to('.triangle', 1, {
 			morphSVG: tri2,
@@ -146,6 +169,7 @@ require('./modules/native.history.js');
 		});
     }
 
+
     function contentChanged() {
     	TweenMax.set('.spinner', {zIndex: -1});
     	TweenMax.set('.loader', {zIndex: -1});
@@ -154,7 +178,6 @@ require('./modules/native.history.js');
 
 
     function ajaxPage(url) {
-
     	// DO AJAXY STUFF
 		var request = new XMLHttpRequest();
 		request.open('GET', url, true);
@@ -192,11 +215,9 @@ require('./modules/native.history.js');
 					zIndex: 98
 				});
 
-
 				manualStateChange = false;
 				currentState ++;
 				History.pushState({ state: currentState }, title[0], url);
-
 			} else {
 				window.open(this.href);
 			}
