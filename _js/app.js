@@ -149,7 +149,20 @@ require('./modules/native.history.js');
 
 
     function changeContent(content) {
-    	document.querySelector('.content').innerHTML = content;
+    	var contentWrap = document.querySelector('.content'),
+    		codepen = document.querySelector('#codepen');
+
+    	contentWrap.innerHTML = content;
+
+    	if (codepen != null) {
+    		var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = '//assets.codepen.io/assets/embed/ei.js';
+    		document.body.appendChild(script);
+    	}
+
+
+
     	window.scrollTo(0, 0);
     	headerInit();
     	linksInit();
