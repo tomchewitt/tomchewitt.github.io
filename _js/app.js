@@ -161,8 +161,6 @@ require('./modules/native.history.js');
     		document.body.appendChild(script);
     	}
 
-
-
     	window.scrollTo(0, 0);
     	headerInit();
     	linksInit();

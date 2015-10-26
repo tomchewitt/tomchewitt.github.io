@@ -15,6 +15,8 @@ uid: 'lipsum'
 
 <p>The tags option will add 'p' tags wrapping each paragraph... and the hodor tag is there just for funsies.</p>
 
+<p><a href="https://tomchewitt.github.io/lipsum-generator" target="_blank">Go check it out!</a></p>
+
 <section class="post-media">
 	<ul>
 		<li class="curved"><img src="/asset/img/work/lipsum/01.jpg"></li>

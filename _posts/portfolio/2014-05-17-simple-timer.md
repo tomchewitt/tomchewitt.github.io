@@ -13,6 +13,8 @@ uid: 'timer'
 
 <p>I found a great little jQuery library called <a href="http://simplefocus.com/flowtype/" target="_blank">flowtype.js</a> that will resize type to fit the parent space which was perfect for creating a responsive timer. The timer mechanic was simple enough to create using javascript’s built in setInterval function. The design is clean and simple and was built in the browser.</p>
 
+<p><a href="https://tomchewitt.github.io/simple-timer">Go check it out!</a></p>
+
 <section class="post-media">
 	<ul>
 		<li class="curved"><img src="/asset/img/work/timer/01.jpg"></li>
