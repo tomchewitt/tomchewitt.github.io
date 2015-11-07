@@ -17,7 +17,8 @@ require('./modules/native.history.js');
 		sidebar = document.querySelector('.sidebar'),
 		linksArr,
 		currentState = 1,
-		manualStateChange = true;
+		manualStateChange = true,
+		scrolled = false;
 
 	linksInit();
 	headerInit();
@@ -58,41 +59,57 @@ require('./modules/native.history.js');
 	}
 
 
+	setInterval(function() {
+		if (scrolled) {
+			// code
+			var winOffset = window.pageYOffset,
+				gradientPercentage = ((winOffset / titleHeight) / 2.2) + 0.8,
+				bgPercentage = 1 - (winOffset / headerHeight);
+
+			if (bg != null) {
+				if (winOffset <= headerHeight) {
+					bg.style.opacity = bgPercentage;
+				};
+			};
+
+			if (gradient != null) {
+				if (winOffset <= titleHeight) {
+					gradient.style.opacity = gradientPercentage;
+				};
+			};
+
+			if (postHeader != null) {
+				var headerOffset = (380 - (postHeader.clientHeight)) / 2 - 10,
+					winx = window.innerWidth;
+
+				if (winx > 789) {
+					if (winOffset >= headerOffset) {
+						postHeader.style.top = 'auto';
+						postHeader.style.bottom = '60px';
+						postHeader.style.position = 'absolute';
+						postHeader.style.left = '12.5%';
+						postHeader.style.width = '75%';
+					} else {
+						postHeader.style.top = (400 - postHeader.clientHeight) / 2 + 'px';
+						postHeader.style.bottom = 'auto';
+						postHeader.style.position = 'fixed';
+						postHeader.style.left = '30%';
+						postHeader.style.width = '60%';
+					};
+				} else {
+					postHeader.style.position = 'absolute';
+					postHeader.style.left = '12.5%';
+					postHeader.style.width = '75%';
+				};
+
+			};
+			scrolled = false;
+		}
+	}, 30);
+
 	// SCROLL
 	window.onscroll = function() {
-		var winOffset = window.pageYOffset,
-			gradientPercentage = ((winOffset / titleHeight) / 2.2) + 0.8,
-			bgPercentage = 1 - (winOffset / headerHeight);
-
-		if (bg != null) {
-			if (winOffset <= headerHeight) {
-				bg.style.opacity = bgPercentage;
-			};
-		};
-
-		if (gradient != null) {
-			if (winOffset <= titleHeight) {
-				gradient.style.opacity = gradientPercentage;
-			};
-		};
-
-		if (postHeader != null) {
-			var headerOffset = (380 - (postHeader.clientHeight)) / 2 - 10;
-
-			if (winOffset >= headerOffset) {
-				postHeader.style.top = 'auto';
-				postHeader.style.bottom = '60px';
-				postHeader.style.position = 'absolute';
-				postHeader.style.left = '12.5%';
-				postHeader.style.width = '75%';
-			} else {
-				postHeader.style.top = (400 - postHeader.clientHeight) / 2 + 'px';
-				postHeader.style.bottom = 'auto';
-				postHeader.style.position = 'fixed';
-				postHeader.style.left = '30%';
-				postHeader.style.width = '60%';
-			};
-		};
+		scrolled = true;
 	};
 
 
@@ -129,6 +146,7 @@ require('./modules/native.history.js');
 
 					var url = this.href;
 
+					sidebar.classList.toggle('JS_on');
 					ajaxPage(url);
 				};
 			}
