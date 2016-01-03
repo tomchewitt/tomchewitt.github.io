@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Obligatory "first" post'
+title: 'Obligatory &quot;first&quot; post'
 subtitle:  My move to Jekyll & GitHub pages
 tags: [develop, news]
 uid: 'firstpost'
