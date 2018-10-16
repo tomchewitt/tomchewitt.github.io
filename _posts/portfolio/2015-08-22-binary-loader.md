@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Binary Loader
-tags: [portfolio, develop, design]
+tags: [develop, design, personal]
 square: '/asset/img/work/codepen/01.jpg'
 background: '/asset/img/work/codepen/01.jpg'
 uid: 'codepen'

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Colourflood
-tags: [portfolio, design, develop]
+tags: [design, develop]
 square: '/asset/img/work/colourflood/hero.svg'
 background: '/asset/img/work/colourflood/hero.svg'
 uid: 'colourflood'

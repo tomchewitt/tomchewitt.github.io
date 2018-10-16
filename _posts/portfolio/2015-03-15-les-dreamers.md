@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Les Dreamers
-tags: [portfolio, develop, ux]
+tags: [develop, ux]
 square: '/asset/img/work/lesdreamers/hero.jpg'
 background: '/asset/img/work/lesdreamers/hero.jpg'
 uid: 'lesdreamers'

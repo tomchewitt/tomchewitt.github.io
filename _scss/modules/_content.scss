@@ -48,6 +48,16 @@ p.hometext {
 
 }
 
+.post-header--about {
+	background-color: #e7feff;
+	background-size: contain;
+	background-position: right;
+
+	h1.post-title {
+		color: $purple;
+	}
+}
+
 .post-header-wrap {
 	width: 100%;
 	height: 440px;

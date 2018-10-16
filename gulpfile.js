@@ -108,10 +108,10 @@ gulp.task('lint', function() {
 // STYLE TASK
 gulp.task('styles', function (){
     gulp.src(paths.styles.files)
-    	.pipe(sourcemaps.init())
+    	// .pipe(sourcemaps.init())
 		    .pipe(sass({
 		        outputStyle: 'compressed',
-		        sourceMap: 'sass',
+		        // sourceMap: 'sass',
 		        includePaths : [paths.styles.src]
 		    }))
 		    .on('error', function(err) {
@@ -119,7 +119,7 @@ gulp.task('styles', function (){
 				this.emit('end');
 			})
 		    .pipe(prefix('last 2 version', 'safari 5', 'ie 9', 'ios 6', 'android 4'))
-		.pipe(sourcemaps.write(paths.maps))
+		// .pipe(sourcemaps.write(paths.maps))
 	    .pipe(size())
 	    .pipe(gulp.dest(paths.styles.dest))
 	    .pipe(gulp.dest(paths.styles.sitedest));

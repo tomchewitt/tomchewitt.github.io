@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Lipsum Generator
-tags: [portfolio, design, develop]
+tags: [design, develop, personal]
 square: '/asset/img/work/lipsum/hero.jpg'
 background: '/asset/img/work/lipsum/hero.jpg'
 uid: 'lipsum'

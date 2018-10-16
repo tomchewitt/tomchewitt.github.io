@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Anniversary
-tags: [portfolio, design, personal]
+tags: [design, personal]
 square: '/asset/img/work/anniversary/anniversary.jpg'
 background: '/asset/img/work/anniversary/02.jpg'
 uid: 'anniversary'

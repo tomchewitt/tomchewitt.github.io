@@ -1,6 +1,8 @@
 highlighter: pygments
 permalink: /post/:title-:year-:month-:day/
-gems: ['jekyll-paginate']
 paginate: 12
 paginate_path: /:num
 exclude: ['Gemfile', 'Gemfile.lock', 'gulpfile.js', 'package.json', 'README.md', 'node_modules']
+plugins:
+  - jekyll-redirect-from
+  - jekyll-paginate

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Simple Timer
-tags: [portfolio, design, develop]
+tags: [design, develop, personal]
 square: '/asset/img/work/timer/hero.jpg'
 background: '/asset/img/work/timer/hero.jpg'
 uid: 'timer'

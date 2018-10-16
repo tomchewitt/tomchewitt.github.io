@@ -23,6 +23,17 @@
 
 }
 
+.interests {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    letter-spacing: 0.02em;
+    list-style-type: disc;
+
+    li {
+    	padding-bottom: 0.6em;
+    }
+}
+
 .content-alt {
 	background: $blue;
 	padding: 60px;
@@ -78,7 +89,8 @@
 		.client-argos,
 		.client-ea,
 		.client-bbc,
-		.client-climax {
+		.client-climax,
+		.client-rareloop {
 			height: 40px;
 		}
 	}

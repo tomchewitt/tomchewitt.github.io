@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Comparethemarket
-tags: [portfolio, design, ux]
+tags: [design, ux]
 square: '/asset/img/work/ctm-travel/hero.jpg'
 background: '/asset/img/work/ctm-travel/hero.jpg'
 uid: 'ctm-travel'

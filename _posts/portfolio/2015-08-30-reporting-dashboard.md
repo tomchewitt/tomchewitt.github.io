@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reporting Dashboard
-tags: [portfolio, develop, design]
+tags: [develop, design]
 square: '/asset/img/work/reporting/03.jpg'
 background: '/asset/img/work/reporting/03.jpg'
 uid: 'reporting'

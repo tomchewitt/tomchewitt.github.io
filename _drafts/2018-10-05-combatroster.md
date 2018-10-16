@@ -1,0 +1,33 @@
+---
+layout: post
+title: Combat Roster
+tags: [design, develop]
+square: '/asset/img/work/combatroster/00.jpg'
+background: '/asset/img/work/combatroster/00.jpg'
+uid: 'combatroster'
+---
+
+<p class="headline">...</p>
+
+<section class="post-media">
+	<ul>
+		<li class="video-wrap">
+			<button class="video-play">PLAY</button>
+			<video class="video" poster="/asset/img/work/williams/poster.jpg" muted>
+				<source src="/asset/img/work/williams/vid.mp4" type="video/mp4">
+				<source src="/asset/img/work/williams/vid.webm" type="video/webm">
+			</video>
+		</li>
+		<li class="curved"><img src="/asset/img/work/williams/01.jpg"></li>
+	</ul>
+</section>
+
+<section class="block palette five-colors">
+	<ul>
+		<li class="color-1"></li>
+		<li class="color-2"></li>
+		<li class="color-3"></li>
+		<li class="color-4"></li>
+		<li class="color-5"></li>
+	</ul>
+</section>

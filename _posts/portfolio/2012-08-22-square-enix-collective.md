@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Square Enix Collective
-tags: [portfolio, design]
+tags: [design]
 square: '/asset/img/work/collective/sec.jpg'
 background: '/asset/img/work/collective/00.jpg'
 uid: 'collective'

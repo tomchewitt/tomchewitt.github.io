@@ -57,9 +57,7 @@ $triangleborder: 40px;
 }
 
 .logo-wrap {
-	a {
-		text-decoration: none;
-
+	.triangle-wrap {
 		&:hover {
 			.triangle {
 				&::before {

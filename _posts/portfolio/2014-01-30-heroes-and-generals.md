@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Heroes & Generals
-tags: [portfolio, design, ux]
+tags: [design, ux]
 square: '/asset/img/work/hng/hero.jpg'
 background: '/asset/img/work/hng/hero.jpg'
 uid: 'hng'
