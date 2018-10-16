@@ -1,4 +1,4 @@
-highlighter: pygments
+highlighter: rouge
 permalink: /post/:title-:year-:month-:day/
 paginate: 12
 paginate_path: /:num
